@@ -96,7 +96,7 @@ export default function ContactPage() {
                 通常24時間以内に返信いたします。
               </p>
               <a
-                href="#"
+                href="https://line.me/ti/p/8yg5v22ilf"
                 className="group inline-flex items-center gap-3 px-10 py-4 rounded-xl text-base font-bold text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
                 style={{
                   fontFamily: "var(--font-display)",
@@ -137,7 +137,7 @@ export default function ContactPage() {
               </div>
             </div>
             <a
-              href="mailto:contact@example.com"
+              href="mailto:kei4733.88@gmail.com"
               className="text-sm font-medium text-accent-blue hover:text-accent-blue-light transition-colors whitespace-nowrap"
               style={{ fontFamily: "var(--font-display)" }}
             >

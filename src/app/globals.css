@@ -71,13 +71,6 @@
     pointer-events: none;
   }
 
-  .glow-blue {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.15), 0 0 80px rgba(59, 130, 246, 0.05);
-  }
-
-  .glow-purple {
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.15), 0 0 80px rgba(139, 92, 246, 0.05);
-  }
 
   .noise-overlay {
     position: fixed;
@@ -92,7 +85,7 @@
     background-image:
       linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-size: 80px 80px;
   }
 }
 

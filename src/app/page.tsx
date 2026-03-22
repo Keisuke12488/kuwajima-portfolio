@@ -22,9 +22,9 @@ const aiFields = [
 ];
 
 const stats = [
-  { value: "4+", label: "業界でのAI構築実績" },
-  { value: "10h→0", label: "自動化した手作業" },
-  { value: "PoC", label: "プロダクト開発中" },
+  { value: "7+", label: "AI構築プロジェクト" },
+  { value: "120分→10分", label: "記録業務の短縮" },
+  { value: "6+", label: "SNSチャンネル運用" },
 ];
 
 export default function HomePage() {
@@ -49,7 +49,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <span
-              className="inline-block text-sm font-medium tracking-widest uppercase text-text-secondary mb-6 px-4 py-1.5 rounded-full border border-border"
+              className="inline-block text-sm font-medium tracking-wide uppercase text-text-secondary mb-6 px-4 py-1.5 rounded-full border border-border"
               style={{ fontFamily: "var(--font-display)" }}
             >
               AI × SNS
@@ -128,11 +128,11 @@ export default function HomePage() {
       </section>
 
       {/* ===== DUAL DOMAINS ===== */}
-      <section className="py-32 px-6">
+      <section className="py-24 px-6">
         <div className="mx-auto max-w-6xl">
           <FadeInSection>
             <p
-              className="text-sm font-medium tracking-widest uppercase text-accent-blue mb-4"
+              className="text-sm font-medium tracking-wide uppercase text-accent-blue mb-4"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Two Domains
@@ -143,7 +143,7 @@ export default function HomePage() {
             >
               ふたつの武器で、事業を動かす。
             </h2>
-            <p className="text-text-secondary text-lg max-w-xl mb-16">
+            <p className="text-text-secondary text-lg max-w-xl mb-16 leading-relaxed">
               AIで業務を自動化し、SNSで認知を拡大する。
               テクノロジーとマーケティング、両輪で事業成長を設計します。
             </p>
@@ -152,7 +152,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6">
             {/* AI Domain */}
             <FadeInSection>
-              <div className="relative group rounded-2xl border border-border bg-bg-card p-8 md:p-10 transition-all duration-500 hover:border-accent-blue/30 hover:bg-bg-card-hover">
+              <div className="relative group rounded-2xl border border-border bg-bg-card p-8 md:p-10 transition-all duration-500 hover:border-border-light">
                 <div className="absolute top-0 right-0 w-48 h-48 rounded-full blur-[100px] opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-accent-blue" />
 
                 <div className="flex items-center gap-3 mb-6">
@@ -191,7 +191,7 @@ export default function HomePage() {
 
             {/* SNS Domain */}
             <FadeInSection delay={0.15}>
-              <div className="relative group rounded-2xl border border-border bg-bg-card p-8 md:p-10 transition-all duration-500 hover:border-accent-purple/30 hover:bg-bg-card-hover">
+              <div className="relative group rounded-2xl border border-border bg-bg-card p-8 md:p-10 transition-all duration-500 hover:border-border-light">
                 <div className="absolute top-0 right-0 w-48 h-48 rounded-full blur-[100px] opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-accent-purple" />
 
                 <div className="flex items-center gap-3 mb-6">
@@ -239,7 +239,7 @@ export default function HomePage() {
           {stats.map((stat) => (
             <StaggerItem key={stat.label} className="text-center">
               <p
-                className="text-4xl md:text-5xl font-extrabold gradient-text mb-2"
+                className="text-4xl md:text-5xl font-extrabold text-accent-blue mb-2"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {stat.value}
@@ -251,7 +251,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== PRODUCT TEASER ===== */}
-      <section className="py-32 px-6">
+      <section className="py-40 px-6">
         <div className="mx-auto max-w-6xl">
           <FadeInSection>
             <div className="relative rounded-2xl border border-border bg-bg-card overflow-hidden">
@@ -264,7 +264,7 @@ export default function HomePage() {
               />
               <div className="relative p-10 md:p-16 text-center">
                 <span
-                  className="inline-block text-xs font-medium tracking-widest uppercase text-accent-purple mb-4 px-3 py-1 rounded-full border border-accent-purple/20 bg-accent-purple/5"
+                  className="inline-block text-xs font-medium tracking-wide uppercase text-accent-purple mb-4 px-3 py-1 rounded-full border border-accent-purple/20 bg-accent-purple/5"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Product — PoC募集中
