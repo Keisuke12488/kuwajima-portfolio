@@ -53,7 +53,9 @@ export default function HomePage() {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8 text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            あなた<span className="text-[#999999]">専用の</span>テクノロジーを
+            あなた<span className="text-[#999999]">専用の</span>
+            <br />
+            テクノロジーを
           </motion.h1>
 
           <motion.p
