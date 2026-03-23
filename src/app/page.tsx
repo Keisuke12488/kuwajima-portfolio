@@ -183,6 +183,7 @@ export default function HomePage() {
                 </div>
 
                 <p className="text-text-secondary mb-8">
+                  6チャンネル・総フォロワー100万人超の運用実績。
                   アルゴリズムの構造を理解した上で、
                   コンテンツ戦略とブランド設計をトータルで支援します。
                 </p>

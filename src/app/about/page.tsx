@@ -6,31 +6,43 @@ import {
   Rocket,
   Users,
   Target,
+  Code2,
+  Cloud,
+  Brain,
+  HardDrive,
+  ClipboardList,
+  Megaphone,
 } from "lucide-react";
 
 const skills = [
   {
     category: "フロントエンド",
+    icon: Code2,
     items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "HTML / CSS"],
   },
   {
     category: "バックエンド",
+    icon: Cloud,
     items: ["Node.js", "Python", "Supabase", "PostgreSQL"],
   },
   {
     category: "AI / LLM",
+    icon: Brain,
     items: ["Claude API", "Gemini API", "Whisper API", "プロンプトエンジニアリング", "RAG設計"],
   },
   {
     category: "インフラ / ツール",
+    icon: HardDrive,
     items: ["AWS", "Vercel", "Git", "Docker"],
   },
   {
     category: "上流工程",
+    icon: ClipboardList,
     items: ["要件定義", "データ設計", "API設計", "0→1構想設計", "ワークフロー設計"],
   },
   {
     category: "SNS / マーケティング",
+    icon: Megaphone,
     items: ["コンテンツ戦略設計", "チャンネル運用ディレクション", "アルゴリズム分析", "ブランド設計", "撮影 / 編集ディレクション"],
   },
 ];
@@ -157,12 +169,15 @@ export default function AboutPage() {
             {skills.map((group) => (
               <StaggerItem key={group.category}>
                 <div className="rounded-xl border border-border bg-bg-secondary p-6">
-                  <h3
-                    className="text-sm font-bold mb-4"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {group.category}
-                  </h3>
+                  <div className="flex items-center gap-2 mb-4">
+                    <group.icon size={16} className="text-accent-blue" />
+                    <h3
+                      className="text-sm font-bold"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      {group.category}
+                    </h3>
+                  </div>
                   <div className="flex flex-wrap gap-1.5">
                     {group.items.map((item) => (
                       <span
