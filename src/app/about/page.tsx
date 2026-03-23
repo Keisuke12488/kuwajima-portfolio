@@ -132,7 +132,7 @@ export default function AboutPage() {
             className="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Kuwajima
+            <span className="text-[#999999]">K</span>uwajima
           </h1>
           <p className="text-text-secondary max-w-2xl mb-4">
             AIの事業実装とSNS戦略設計を軸に活動するフリーランス。
