@@ -14,17 +14,17 @@ import {
 } from "lucide-react";
 
 const aiFields = [
-  { icon: Building2, label: "福祉AI", desc: "支援記録の自動生成" },
-  { icon: FileText, label: "税務AI", desc: "OCR×帳票処理の効率化" },
-  { icon: HomeIcon, label: "不動産AI", desc: "業務プロセスのAI化" },
-  { icon: BarChart3, label: "広告AI", desc: "レポート自動化" },
+  { icon: Building2, label: "福祉AI", desc: "支援記録の自動生成", color: "#10b981" },
+  { icon: FileText, label: "税務AI", desc: "OCR×帳票処理の効率化", color: "#6366f1" },
+  { icon: HomeIcon, label: "不動産AI", desc: "業務プロセスのAI化", color: "#f59e0b" },
+  { icon: BarChart3, label: "広告AI", desc: "レポート自動化", color: "#ef4444" },
 ];
 
 const stats = [
   { value: "170万+", label: "総フォロワー" },
   { value: "7+", label: "AI構築実績" },
   { value: "6+", label: "SNSチャンネル運用" },
-  { value: "700+", label: "累計削減時間（時間）" },
+  { value: "700H+", label: "累計削減時間" },
 ];
 
 export default function HomePage() {
@@ -53,9 +53,9 @@ export default function HomePage() {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8 text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            テクノロジーで
+            あなた<span className="text-[#999999]">専用の</span>
             <br />
-            事業を加速させる。
+            テクノロジーを。
           </motion.h1>
 
           <motion.p
@@ -103,7 +103,7 @@ export default function HomePage() {
           {stats.map((stat) => (
             <StaggerItem key={stat.label}>
               <p
-                className="text-4xl md:text-5xl font-bold text-text-secondary mb-2"
+                className="text-5xl md:text-6xl font-bold text-text-secondary mb-2"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {stat.value}
@@ -141,7 +141,7 @@ export default function HomePage() {
             <FadeInSection>
               <div className="rounded-xl border border-border bg-bg-card p-8 md:p-12 transition-colors duration-200 hover:border-border-light">
                 <div className="flex items-center gap-3 mb-6">
-                  <Brain size={18} className="text-text-muted" />
+                  <Brain size={18} className="text-[#3b82f6]" />
                   <h3
                     className="text-lg font-bold text-text-primary"
                     style={{ fontFamily: "var(--font-display)" }}
@@ -161,7 +161,7 @@ export default function HomePage() {
                       key={field.label}
                       className="flex items-center gap-3"
                     >
-                      <field.icon size={14} className="text-text-muted shrink-0" />
+                      <field.icon size={14} className="shrink-0" style={{ color: field.color }} />
                       <div className="flex items-baseline gap-2">
                         <p className="text-sm font-medium text-text-primary">{field.label}</p>
                         <p className="text-xs text-text-muted">{field.desc}</p>
@@ -176,7 +176,7 @@ export default function HomePage() {
             <FadeInSection delay={0.08}>
               <div className="rounded-xl border border-border bg-bg-card p-8 md:p-12 transition-colors duration-200 hover:border-border-light">
                 <div className="flex items-center gap-3 mb-6">
-                  <Megaphone size={18} className="text-text-muted" />
+                  <Megaphone size={18} className="text-[#f59e0b]" />
                   <h3
                     className="text-lg font-bold text-text-primary"
                     style={{ fontFamily: "var(--font-display)" }}

@@ -14,36 +14,82 @@ import {
   Megaphone,
 } from "lucide-react";
 
-const skills = [
+interface SkillItem {
+  label: string;
+  bg: string;
+  text: string;
+}
+
+interface SkillGroup {
+  category: string;
+  icon: React.ElementType;
+  items: SkillItem[];
+}
+
+const skills: SkillGroup[] = [
   {
     category: "フロントエンド",
     icon: Code2,
-    items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "HTML / CSS"],
+    items: [
+      { label: "TypeScript", bg: "bg-[#3178c6]/10", text: "text-[#3178c6]" },
+      { label: "React", bg: "bg-[#61dafb]/10", text: "text-[#0ea5e9]" },
+      { label: "Next.js", bg: "bg-[#000000]/10", text: "text-[#000000]" },
+      { label: "Tailwind CSS", bg: "bg-[#06b6d4]/10", text: "text-[#06b6d4]" },
+      { label: "HTML / CSS", bg: "bg-[#e34f26]/10", text: "text-[#e34f26]" },
+    ],
   },
   {
     category: "バックエンド",
     icon: Cloud,
-    items: ["Node.js", "Python", "Supabase", "PostgreSQL"],
+    items: [
+      { label: "Node.js", bg: "bg-[#339933]/10", text: "text-[#339933]" },
+      { label: "Python", bg: "bg-[#3776ab]/10", text: "text-[#3776ab]" },
+      { label: "Supabase", bg: "bg-[#3ecf8e]/10", text: "text-[#38a169]" },
+      { label: "PostgreSQL", bg: "bg-[#336791]/10", text: "text-[#336791]" },
+    ],
   },
   {
     category: "AI / LLM",
     icon: Brain,
-    items: ["Claude API", "Gemini API", "Whisper API", "プロンプトエンジニアリング", "RAG設計"],
+    items: [
+      { label: "Claude API", bg: "bg-[#d97706]/10", text: "text-[#d97706]" },
+      { label: "Gemini API", bg: "bg-[#4285f4]/10", text: "text-[#4285f4]" },
+      { label: "Whisper API", bg: "bg-[#412991]/10", text: "text-[#412991]" },
+      { label: "プロンプトエンジニアリング", bg: "bg-[#8b5cf6]/10", text: "text-[#8b5cf6]" },
+      { label: "RAG設計", bg: "bg-[#059669]/10", text: "text-[#059669]" },
+    ],
   },
   {
     category: "インフラ / ツール",
     icon: HardDrive,
-    items: ["AWS", "Vercel", "Git", "Docker"],
+    items: [
+      { label: "AWS", bg: "bg-[#ff9900]/10", text: "text-[#ff9900]" },
+      { label: "Vercel", bg: "bg-[#000000]/10", text: "text-[#000000]" },
+      { label: "Git", bg: "bg-[#f05032]/10", text: "text-[#f05032]" },
+      { label: "Docker", bg: "bg-[#2496ed]/10", text: "text-[#2496ed]" },
+    ],
   },
   {
     category: "上流工程",
     icon: ClipboardList,
-    items: ["要件定義", "データ設計", "API設計", "0→1構想設計", "ワークフロー設計"],
+    items: [
+      { label: "要件定義", bg: "bg-[#6366f1]/10", text: "text-[#6366f1]" },
+      { label: "データ設計", bg: "bg-[#6366f1]/10", text: "text-[#6366f1]" },
+      { label: "API設計", bg: "bg-[#6366f1]/10", text: "text-[#6366f1]" },
+      { label: "0→1構想設計", bg: "bg-[#6366f1]/10", text: "text-[#6366f1]" },
+      { label: "ワークフロー設計", bg: "bg-[#6366f1]/10", text: "text-[#6366f1]" },
+    ],
   },
   {
     category: "SNS / マーケティング",
     icon: Megaphone,
-    items: ["コンテンツ戦略設計", "チャンネル運用ディレクション", "アルゴリズム分析", "ブランド設計", "撮影 / 編集ディレクション"],
+    items: [
+      { label: "コンテンツ戦略設計", bg: "bg-[#f59e0b]/10", text: "text-[#f59e0b]" },
+      { label: "チャンネル運用ディレクション", bg: "bg-[#f59e0b]/10", text: "text-[#f59e0b]" },
+      { label: "アルゴリズム分析", bg: "bg-[#f59e0b]/10", text: "text-[#f59e0b]" },
+      { label: "ブランド設計", bg: "bg-[#f59e0b]/10", text: "text-[#f59e0b]" },
+      { label: "撮影 / 編集ディレクション", bg: "bg-[#f59e0b]/10", text: "text-[#f59e0b]" },
+    ],
   },
 ];
 
@@ -171,10 +217,10 @@ export default function AboutPage() {
                   <div className="flex flex-wrap gap-1.5">
                     {group.items.map((item) => (
                       <span
-                        key={item}
-                        className="text-xs px-2.5 py-1 rounded-full bg-bg-secondary text-text-secondary"
+                        key={item.label}
+                        className={`text-xs px-2.5 py-1 rounded-full ${item.bg} ${item.text}`}
                       >
-                        {item}
+                        {item.label}
                       </span>
                     ))}
                   </div>

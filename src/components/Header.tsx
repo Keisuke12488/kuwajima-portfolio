@@ -24,10 +24,10 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="relative z-50">
             <span
-              className="text-lg font-bold tracking-tight text-text-primary"
+              className="text-lg font-bold tracking-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Kuwajima
+              <span className="text-[#999999]">K</span><span className="text-text-primary">uwajima</span>
             </span>
           </Link>
 
