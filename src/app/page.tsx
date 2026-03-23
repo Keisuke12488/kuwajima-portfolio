@@ -24,7 +24,7 @@ const stats = [
   { value: "170万+", label: "総フォロワー" },
   { value: "7+", label: "AI構築実績" },
   { value: "6+", label: "SNSチャンネル運用" },
-  { value: "700H+", label: "累計削減時間" },
+  { value: "700h+", label: "累計削減時間" },
 ];
 
 export default function HomePage() {
@@ -53,9 +53,7 @@ export default function HomePage() {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8 text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            あなた<span className="text-[#999999]">専用の</span>
-            <br />
-            テクノロジーを。
+            あなた<span className="text-[#999999]">専用の</span>テクノロジーを
           </motion.h1>
 
           <motion.p

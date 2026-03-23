@@ -279,7 +279,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-3 gap-8 mb-16">
             {[
               { value: "7+", label: "AI構築実績" },
-              { value: "700H+", label: "累計削減時間" },
+              { value: "700h+", label: "累計削減時間" },
               { value: "4", label: "業界特化" },
             ].map((stat) => (
               <div key={stat.label}>
