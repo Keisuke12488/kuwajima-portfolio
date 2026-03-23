@@ -22,7 +22,7 @@ const aiFields = [
 ];
 
 const stats = [
-  { value: "100万+", label: "総フォロワー" },
+  { value: "170万+", label: "総フォロワー" },
   { value: "7+", label: "AI構築実績" },
   { value: "6+", label: "SNSチャンネル運用" },
 ];
@@ -183,7 +183,7 @@ export default function HomePage() {
                 </div>
 
                 <p className="text-text-secondary mb-8">
-                  6チャンネル・総フォロワー100万人超の運用実績。
+                  6チャンネル・総フォロワー170万人超の運用実績。
                   アルゴリズムの構造を理解した上で、
                   コンテンツ戦略とブランド設計をトータルで支援します。
                 </p>

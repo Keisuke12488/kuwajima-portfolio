@@ -82,8 +82,9 @@ const aiProjects: AIProject[] = [
   },
   {
     title: "広告シナリオ自動化",
-    description: "広告クリエイティブの制作フローをAIで自動化。既存の実績データを分析し、効果の高いシナリオパターンをAIに学習させて構築。データドリブンなクリエイティブ制作を実現。",
-    processes: ["データ分析", "AI学習設計", "シナリオ生成", "自動化構築"],
+    description: "広告クリエイティブの制作フローをAIで自動化。競合・トレンド情報をスクレイピングで自動収集し、AIがシナリオを出力。常に最新のクリエイティブトレンドを確認できる環境を構築。",
+    results: "手作業2〜3時間のリサーチ → ボタン1つ・5分で完了",
+    processes: ["スクレイピング設計", "データ分析", "スプレッドシート連携", "自動化構築", "運用"],
     tech: ["Claude API", "自動化ワークフロー"],
     status: "運用中",
     icon: MessageSquare,
@@ -119,7 +120,7 @@ const aiProjects: AIProject[] = [
 // ===== SNS運用 =====
 
 const snsStats = [
-  { value: "100万+", label: "総フォロワー" },
+  { value: "170万+", label: "総フォロワー" },
   { value: "6", label: "運用チャンネル数" },
   { value: "55万人", label: "最大チャンネル登録" },
 ];
@@ -154,7 +155,7 @@ const snsData: SNSCategory[] = [
       },
       {
         name: "ルムパ",
-        subscribers: ["TikTok 36万フォロワー", "Instagram 5.5万フォロワー"],
+        subscribers: ["TikTok 36万人", "Instagram 55万人"],
         period: "1年（途中から運用参加）",
         roles: ["企画", "戦略設計", "運用ディレクション", "統合管理"],
         youtube: "https://youtube.com/@roompa?si=R1odM1tFhGV8otVc",
@@ -178,17 +179,19 @@ const snsData: SNSCategory[] = [
         name: "アシタクル",
         subscribers: "10万人",
         period: "半年",
-        roles: ["0→1の設計", "戦略立案", "運用マネジメント"],
+        roles: ["0→1設計", "戦略立案", "運用マネジメント", "ディレクション"],
         youtube: "https://youtube.com/@tisiki?si=dzEkhMafFo73s7_7",
       },
       {
         name: "宇宙チャンネル",
+        subscribers: "〜5万人",
         period: "半年",
-        roles: ["0→1の設計", "戦略立案", "運用マネジメント"],
+        roles: ["0→1設計", "戦略立案", "運用マネジメント", "ディレクション"],
         youtube: "https://youtube.com/channel/UCi5JqShtoqBCj8SkyK8fHyQ?si=-zRtJIIxkbN0otV3",
       },
       {
         name: "30秒で学ぶ食の科学",
+        subscribers: "〜5万人",
         period: "半年（個人の趣味として運用）",
         roles: [],
         youtube: "https://youtube.com/@30-uk7eb?si=Rq73QsOzjT072CIm",
