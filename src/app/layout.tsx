@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kuwajima.vercel.app"),
   title: "Kuwajima | AI × SNS",
   description:
     "AI事業化とSNS設計の二刀流。福祉・税務・不動産・広告のAI効率化と、SNS戦略設計で事業を加速させるフリーランス。",
@@ -12,6 +13,21 @@ export const metadata: Metadata = {
     description:
       "AI事業化とSNS設計の二刀流。業界特化のAI構築とSNS戦略設計。",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Kuwajima | AI × SNS",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kuwajima | AI × SNS",
+    description:
+      "AI事業化とSNS設計の二刀流。業界特化のAI構築とSNS戦略設計。",
+    images: ["/og-image.png"],
   },
 };
 
@@ -23,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

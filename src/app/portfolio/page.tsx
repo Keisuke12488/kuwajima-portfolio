@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FadeInSection, StaggerContainer, StaggerItem } from "@/components/Animations";
 import {
   Brain,
@@ -261,8 +262,16 @@ export default function PortfolioPage() {
           </div>
         </FadeInSection>
 
+        <AnimatePresence mode="wait">
         {/* ===== AI事業セクション ===== */}
         {activeTab === "ai" && (
+          <motion.div
+            key="ai"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+          >
           <StaggerContainer className="space-y-5">
             {aiProjects.map((project) => {
               const statusClass = statusColors[project.status] || "border-border bg-bg-primary text-text-muted";
@@ -332,10 +341,18 @@ export default function PortfolioPage() {
               );
             })}
           </StaggerContainer>
+          </motion.div>
         )}
 
         {/* ===== SNS運用セクション ===== */}
         {activeTab === "sns" && (
+          <motion.div
+            key="sns"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+          >
           <div className="space-y-12">
             {/* 実績サマリー */}
             <FadeInSection>
@@ -464,7 +481,9 @@ export default function PortfolioPage() {
               </FadeInSection>
             ))}
           </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </div>
     </div>
   );
