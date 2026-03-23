@@ -203,7 +203,7 @@ const snsData: SNSCategory[] = [
 const statusStyle: Record<string, string> = {
   "PoC募集中": "text-accent-blue",
   "デモ公開中": "text-accent-blue",
-  "運用中": "text-green-400",
+  "運用中": "text-green-600",
   "検証完了": "text-text-secondary",
   "設計・提案済み": "text-text-secondary",
   "開発中": "text-accent-blue",
@@ -224,7 +224,7 @@ export default function PortfolioPage() {
             Portfolio
           </p>
           <h1
-            className="text-4xl md:text-5xl font-bold tracking-tight mb-4"
+            className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
             実績・プロジェクト
@@ -242,7 +242,7 @@ export default function PortfolioPage() {
               onClick={() => setActiveTab("ai")}
               className={`flex items-center gap-2 pb-3 text-sm font-semibold transition-colors duration-200 border-b-2 -mb-px ${
                 activeTab === "ai"
-                  ? "border-accent-blue text-text-primary"
+                  ? "border-text-primary text-text-primary"
                   : "border-transparent text-text-muted hover:text-text-secondary"
               }`}
               style={{ fontFamily: "var(--font-display)" }}
@@ -254,7 +254,7 @@ export default function PortfolioPage() {
               onClick={() => setActiveTab("sns")}
               className={`flex items-center gap-2 pb-3 text-sm font-semibold transition-colors duration-200 border-b-2 -mb-px ${
                 activeTab === "sns"
-                  ? "border-accent-blue text-text-primary"
+                  ? "border-text-primary text-text-primary"
                   : "border-transparent text-text-muted hover:text-text-secondary"
               }`}
               style={{ fontFamily: "var(--font-display)" }}
@@ -284,7 +284,7 @@ export default function PortfolioPage() {
             ].map((stat) => (
               <div key={stat.label}>
                 <p
-                  className="text-3xl md:text-4xl font-bold text-text-primary mb-1"
+                  className="text-3xl md:text-4xl font-bold text-text-secondary mb-1"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {stat.value}
@@ -294,17 +294,17 @@ export default function PortfolioPage() {
             ))}
           </div>
 
-          <StaggerContainer className="space-y-px bg-border">
+          <StaggerContainer className="space-y-4">
             {aiProjects.map((project) => (
               <StaggerItem key={project.title}>
-                <div className="bg-bg-primary p-8 md:p-10">
+                <div className="rounded-xl border border-border bg-bg-card p-8 md:p-10 transition-colors duration-200 hover:border-border-light">
                   <div className="flex flex-col md:flex-row md:items-start gap-5">
                     <project.icon size={18} className="text-text-muted shrink-0 mt-1" />
 
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-baseline gap-3 mb-2">
                         <h3
-                          className="text-lg font-bold"
+                          className="text-lg font-bold text-text-primary"
                           style={{ fontFamily: "var(--font-display)" }}
                         >
                           {project.title}
@@ -322,7 +322,7 @@ export default function PortfolioPage() {
                       </p>
 
                       {project.results && (
-                        <p className="text-sm font-medium text-accent-blue mb-4">
+                        <p className="text-sm font-medium text-text-primary mb-4">
                           {project.results}
                         </p>
                       )}
@@ -332,7 +332,7 @@ export default function PortfolioPage() {
                         {project.processes.map((p) => (
                           <span
                             key={p}
-                            className="text-xs px-2 py-0.5 rounded-sm bg-bg-secondary text-text-secondary"
+                            className="text-xs px-2.5 py-1 rounded-full bg-bg-secondary text-text-secondary"
                           >
                             {p}
                           </span>
@@ -340,7 +340,7 @@ export default function PortfolioPage() {
                         {project.tech.map((t) => (
                           <span
                             key={t}
-                            className="text-xs px-2 py-0.5 rounded-sm text-text-muted"
+                            className="text-xs px-2.5 py-1 rounded-full text-text-muted"
                           >
                             {t}
                           </span>
@@ -370,7 +370,7 @@ export default function PortfolioPage() {
               {snsStats.map((stat) => (
                 <div key={stat.label}>
                   <p
-                    className="text-3xl md:text-4xl font-bold text-text-primary mb-1"
+                    className="text-3xl md:text-4xl font-bold text-text-secondary mb-1"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {stat.value}
@@ -389,17 +389,17 @@ export default function PortfolioPage() {
                 >
                   {category.label}
                 </h2>
-                <div className="space-y-px bg-border">
+                <div className="space-y-4">
                   {category.channels.map((channel) => (
                     <div
                       key={channel.name}
-                      className="bg-bg-primary p-6 md:p-8"
+                      className="rounded-xl border border-border bg-bg-card p-6 md:p-8 transition-colors duration-200 hover:border-border-light"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                         <div>
                           <div className="flex items-baseline gap-3 mb-1">
                             <h3
-                              className="text-base font-bold"
+                              className="text-base font-bold text-text-primary"
                               style={{ fontFamily: "var(--font-display)" }}
                             >
                               {channel.name}
@@ -428,7 +428,7 @@ export default function PortfolioPage() {
                               href={channel.youtube}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-text-muted hover:text-text-secondary transition-colors"
+                              className="text-text-muted hover:text-text-primary transition-colors"
                               aria-label={`${channel.name} YouTube`}
                             >
                               <YouTubeIcon size={16} />
@@ -439,7 +439,7 @@ export default function PortfolioPage() {
                               href={channel.tiktok}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-text-muted hover:text-text-secondary transition-colors"
+                              className="text-text-muted hover:text-text-primary transition-colors"
                               aria-label={`${channel.name} TikTok`}
                             >
                               <TikTokIcon size={16} />
@@ -450,7 +450,7 @@ export default function PortfolioPage() {
                               href={channel.instagram}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-text-muted hover:text-text-secondary transition-colors"
+                              className="text-text-muted hover:text-text-primary transition-colors"
                               aria-label={`${channel.name} Instagram`}
                             >
                               <InstagramIcon size={16} />
@@ -465,7 +465,7 @@ export default function PortfolioPage() {
                           {channel.roles.map((role) => (
                             <span
                               key={role}
-                              className="text-xs px-2 py-0.5 rounded-sm bg-bg-secondary text-text-secondary"
+                              className="text-xs px-2.5 py-1 rounded-full bg-bg-secondary text-text-secondary"
                             >
                               {role}
                             </span>

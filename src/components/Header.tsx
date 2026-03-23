@@ -44,7 +44,7 @@ export function Header() {
                 >
                   <span
                     className={
-                      isActive ? "text-text-primary" : "text-text-muted hover:text-text-secondary"
+                      isActive ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
                     }
                   >
                     {item.label}
@@ -64,7 +64,7 @@ export function Header() {
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative z-50 md:hidden p-2 text-text-muted hover:text-text-primary transition-colors"
+            className="relative z-50 md:hidden p-2 text-text-secondary hover:text-text-primary transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -80,7 +80,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-0 z-40 bg-bg-primary md:hidden"
+            className="fixed inset-0 z-40 bg-white md:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8">
               {navItems.map((item, i) => (
@@ -101,7 +101,7 @@ export function Header() {
                       className={
                         pathname === item.href
                           ? "text-text-primary"
-                          : "text-text-muted hover:text-text-secondary"
+                          : "text-text-secondary hover:text-text-primary"
                       }
                     >
                       {item.label}
@@ -119,7 +119,7 @@ export function Header() {
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(6,6,8,0.95) 0%, rgba(6,6,8,0.5) 100%)",
+            "linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 100%)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
         }}

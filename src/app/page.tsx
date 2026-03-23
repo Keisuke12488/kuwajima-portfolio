@@ -50,12 +50,12 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8 text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
             テクノロジーで
             <br />
-            <span className="gradient-text">事業を加速させる。</span>
+            事業を加速させる。
           </motion.h1>
 
           <motion.p
@@ -77,7 +77,7 @@ export default function HomePage() {
           >
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-sm font-semibold text-white bg-accent-blue hover:bg-accent-blue-light transition-colors duration-300"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-text-primary hover:opacity-80 transition-opacity duration-200"
               style={{ fontFamily: "var(--font-display)" }}
             >
               <span>お問い合わせ</span>
@@ -88,7 +88,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-300"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-medium text-text-secondary border border-border-light hover:border-text-muted transition-colors duration-200"
               style={{ fontFamily: "var(--font-display)" }}
             >
               実績を見る
@@ -103,7 +103,7 @@ export default function HomePage() {
           {stats.map((stat) => (
             <StaggerItem key={stat.label}>
               <p
-                className="text-4xl md:text-5xl font-bold text-text-primary mb-2"
+                className="text-4xl md:text-5xl font-bold text-text-secondary mb-2"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {stat.value}
@@ -125,7 +125,7 @@ export default function HomePage() {
               Two Domains
             </p>
             <h2
-              className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
+              className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
               ふたつの武器で、事業を動かす。
@@ -136,14 +136,14 @@ export default function HomePage() {
             </p>
           </FadeInSection>
 
-          <div className="grid md:grid-cols-2 gap-px bg-border">
+          <div className="grid md:grid-cols-2 gap-6">
             {/* AI Domain */}
             <FadeInSection>
-              <div className="bg-bg-primary p-8 md:p-12">
+              <div className="rounded-xl border border-border bg-bg-card p-8 md:p-12 transition-colors duration-200 hover:border-border-light">
                 <div className="flex items-center gap-3 mb-6">
-                  <Brain size={18} className="text-accent-blue" />
+                  <Brain size={18} className="text-text-muted" />
                   <h3
-                    className="text-lg font-bold"
+                    className="text-lg font-bold text-text-primary"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     AI事業化
@@ -163,7 +163,7 @@ export default function HomePage() {
                     >
                       <field.icon size={14} className="text-text-muted shrink-0" />
                       <div className="flex items-baseline gap-2">
-                        <p className="text-sm font-medium">{field.label}</p>
+                        <p className="text-sm font-medium text-text-primary">{field.label}</p>
                         <p className="text-xs text-text-muted">{field.desc}</p>
                       </div>
                     </div>
@@ -174,11 +174,11 @@ export default function HomePage() {
 
             {/* SNS Domain */}
             <FadeInSection delay={0.08}>
-              <div className="bg-bg-primary p-8 md:p-12">
+              <div className="rounded-xl border border-border bg-bg-card p-8 md:p-12 transition-colors duration-200 hover:border-border-light">
                 <div className="flex items-center gap-3 mb-6">
-                  <Megaphone size={18} className="text-accent-blue" />
+                  <Megaphone size={18} className="text-text-muted" />
                   <h3
-                    className="text-lg font-bold"
+                    className="text-lg font-bold text-text-primary"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     SNS設計
@@ -203,7 +203,7 @@ export default function HomePage() {
                       className="flex items-center gap-3"
                     >
                       <span className="w-1 h-1 rounded-full bg-text-muted shrink-0" />
-                      <p className="text-sm font-medium">{item}</p>
+                      <p className="text-sm font-medium text-text-primary">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -226,7 +226,7 @@ export default function HomePage() {
                   Product — PoC募集中
                 </span>
                 <h2
-                  className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
+                  className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-text-primary"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Welza
@@ -239,7 +239,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-accent-blue hover:text-accent-blue-light transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-text-primary hover:text-text-secondary transition-colors"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   PoC参加のご相談
@@ -256,7 +256,7 @@ export default function HomePage() {
         <FadeInSection>
           <div className="mx-auto max-w-3xl">
             <h2
-              className="text-3xl md:text-5xl font-bold tracking-tight mb-6"
+              className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
               一緒に、事業を動かしませんか？
@@ -266,7 +266,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-10 py-3.5 rounded-md text-sm font-semibold text-white bg-accent-blue hover:bg-accent-blue-light transition-colors duration-300"
+              className="group inline-flex items-center gap-2 px-10 py-3.5 rounded-full text-sm font-semibold text-white bg-text-primary hover:opacity-80 transition-opacity duration-200"
               style={{ fontFamily: "var(--font-display)" }}
             >
               <span>お問い合わせ</span>

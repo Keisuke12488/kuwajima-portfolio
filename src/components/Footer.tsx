@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-12 mt-40">
+    <footer className="bg-bg-secondary py-12 mt-40">
       <div className="mx-auto max-w-5xl px-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <span
@@ -22,7 +22,7 @@ export function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-xs text-text-muted hover:text-text-secondary transition-colors"
+                className="text-xs text-text-secondary hover:text-text-primary transition-colors"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {item.label}
@@ -32,7 +32,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border">
-          <p className="text-text-muted text-xs">
+          <p className="text-text-secondary text-xs">
             © {new Date().getFullYear()} Kuwajima
           </p>
         </div>

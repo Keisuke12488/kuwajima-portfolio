@@ -83,7 +83,7 @@ export default function AboutPage() {
             About
           </p>
           <h1
-            className="text-4xl md:text-5xl font-bold tracking-tight mb-8"
+            className="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Kuwajima
@@ -111,20 +111,20 @@ export default function AboutPage() {
               Strengths
             </p>
             <h2
-              className="text-2xl md:text-3xl font-bold tracking-tight mb-16"
+              className="text-2xl md:text-3xl font-bold tracking-tight mb-16 text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
               強みとスタイル
             </h2>
           </FadeInSection>
 
-          <StaggerContainer className="grid sm:grid-cols-2 gap-px bg-border">
+          <StaggerContainer className="grid sm:grid-cols-2 gap-6">
             {strengths.map((s) => (
               <StaggerItem key={s.title}>
-                <div className="bg-bg-primary p-8 md:p-10">
+                <div className="rounded-xl border border-border bg-bg-card p-8 md:p-10 transition-colors duration-200 hover:border-border-light">
                   <s.icon size={18} className="text-text-muted mb-5" />
                   <h3
-                    className="text-lg font-bold mb-2"
+                    className="text-lg font-bold mb-2 text-text-primary"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {s.title}
@@ -148,21 +148,21 @@ export default function AboutPage() {
               Skills
             </p>
             <h2
-              className="text-2xl md:text-3xl font-bold tracking-tight mb-16"
+              className="text-2xl md:text-3xl font-bold tracking-tight mb-16 text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
               スキル
             </h2>
           </FadeInSection>
 
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {skills.map((group) => (
               <StaggerItem key={group.category}>
-                <div className="bg-bg-primary p-6 md:p-8">
+                <div className="rounded-xl border border-border bg-bg-card p-6 md:p-8 transition-colors duration-200 hover:border-border-light">
                   <div className="flex items-center gap-2.5 mb-5">
                     <group.icon size={14} className="text-text-muted" />
                     <h3
-                      className="text-sm font-bold"
+                      className="text-sm font-bold text-text-primary"
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       {group.category}
@@ -172,7 +172,7 @@ export default function AboutPage() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="text-xs px-2.5 py-1 rounded-sm bg-bg-secondary text-text-secondary"
+                        className="text-xs px-2.5 py-1 rounded-full bg-bg-secondary text-text-secondary"
                       >
                         {item}
                       </span>
@@ -194,7 +194,7 @@ export default function AboutPage() {
               Approach
             </p>
             <h2
-              className="text-2xl md:text-3xl font-bold tracking-tight mb-8"
+              className="text-2xl md:text-3xl font-bold tracking-tight mb-8 text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
               仕事の進め方

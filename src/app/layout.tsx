@@ -51,7 +51,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-bg-primary text-text-primary antialiased">
+      <body className="bg-white text-text-primary antialiased">
         <Header />
         <main>{children}</main>
         <Footer />

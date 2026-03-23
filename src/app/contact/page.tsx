@@ -33,7 +33,7 @@ export default function ContactPage() {
             Contact
           </p>
           <h1
-            className="text-4xl md:text-5xl font-bold tracking-tight mb-4"
+            className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
             お問い合わせ
@@ -46,13 +46,13 @@ export default function ContactPage() {
         </FadeInSection>
 
         {/* Consultation Types */}
-        <StaggerContainer className="grid sm:grid-cols-3 gap-px bg-border mb-20">
+        <StaggerContainer className="grid sm:grid-cols-3 gap-6 mb-20">
           {consultationTypes.map((item) => (
             <StaggerItem key={item.title}>
-              <div className="bg-bg-primary p-8 h-full">
+              <div className="rounded-xl border border-border bg-bg-card p-8 h-full transition-colors duration-200 hover:border-border-light">
                 <item.icon size={18} className="text-text-muted mb-5" />
                 <h3
-                  className="text-sm font-bold mb-1.5"
+                  className="text-sm font-bold mb-1.5 text-text-primary"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {item.title}
@@ -69,11 +69,11 @@ export default function ContactPage() {
             <div className="md:flex md:items-start md:gap-16">
               <div className="md:max-w-sm mb-8 md:mb-0">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#06C755" }}>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: "#06C755" }}>
                     <MessageCircle size={18} className="text-white" />
                   </div>
                   <h2
-                    className="text-xl font-bold tracking-tight"
+                    className="text-xl font-bold tracking-tight text-text-primary"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     LINEでご相談
@@ -87,7 +87,7 @@ export default function ContactPage() {
               <div className="md:flex-1 md:pt-1">
                 <a
                   href="https://line.me/ti/p/8yg5v22ilf"
-                  className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-md text-sm font-bold text-white transition-opacity duration-200 hover:opacity-90"
+                  className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-sm font-bold text-white transition-opacity duration-200 hover:opacity-90"
                   style={{
                     fontFamily: "var(--font-display)",
                     backgroundColor: "#06C755",
@@ -115,7 +115,7 @@ export default function ContactPage() {
               <Mail size={16} className="text-text-muted" />
               <div>
                 <p
-                  className="text-sm font-semibold"
+                  className="text-sm font-semibold text-text-primary"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   メールでのお問い合わせ
