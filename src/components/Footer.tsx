@@ -4,13 +4,13 @@ export function Footer() {
   return (
     <footer className="border-t border-border py-12 mt-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <span
               className="text-lg font-bold tracking-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <span className="gradient-text">K</span>
+              <span className="text-accent-blue">K</span>
               <span className="text-text-primary">uwajima</span>
             </span>
             <p className="text-text-muted text-sm mt-1">
@@ -37,7 +37,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border text-center">
+        <div className="mt-8 pt-8 border-t border-border">
           <p className="text-text-muted text-xs">
             © {new Date().getFullYear()} Kuwajima. All rights reserved.
           </p>

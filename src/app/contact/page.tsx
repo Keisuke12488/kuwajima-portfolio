@@ -22,8 +22,8 @@ const consultationTypes = [
     icon: HelpCircle,
     title: "その他のご相談",
     desc: "まだ具体的に決まっていなくてもOKです",
-    color: "text-accent-pink",
-    bg: "bg-accent-pink/10",
+    color: "text-text-secondary",
+    bg: "bg-bg-primary",
   },
 ];
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-4xl">
         <FadeInSection>
           <p
-            className="text-sm font-medium tracking-widest uppercase text-accent-blue mb-4"
+            className="text-sm font-medium tracking-wide uppercase text-accent-blue mb-4"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Contact
@@ -55,7 +55,7 @@ export default function ContactPage() {
         <StaggerContainer className="grid sm:grid-cols-3 gap-4 mb-16">
           {consultationTypes.map((item) => (
             <StaggerItem key={item.title}>
-              <div className="rounded-xl border border-border bg-bg-card p-6 h-full">
+              <div className="rounded-lg border border-border bg-bg-secondary p-6 h-full">
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${item.bg} mb-4`}>
                   <item.icon size={20} className={item.color} />
                 </div>
@@ -73,31 +73,26 @@ export default function ContactPage() {
 
         {/* LINE CTA - Main */}
         <FadeInSection>
-          <div className="relative rounded-2xl border border-border bg-bg-card overflow-hidden">
-            <div
-              className="absolute inset-0 opacity-5"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 50% 0%, #06C755, transparent 60%)",
-              }}
-            />
-            <div className="relative p-10 md:p-14 text-center">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: "#06C755" }}>
-                <MessageCircle size={28} className="text-white" />
+          <div className="rounded-xl border border-border bg-bg-secondary overflow-hidden">
+            <div className="p-10 md:p-14">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#06C755" }}>
+                  <MessageCircle size={24} className="text-white" />
+                </div>
+                <h2
+                  className="text-2xl md:text-3xl font-bold tracking-tight"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  LINEでお気軽にご相談ください
+                </h2>
               </div>
-              <h2
-                className="text-2xl md:text-3xl font-bold tracking-tight mb-3"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                LINEでお気軽にご相談ください
-              </h2>
-              <p className="text-text-secondary mb-8 max-w-md mx-auto">
+              <p className="text-text-secondary mb-8 max-w-lg">
                 友だち追加後、ご相談内容をメッセージでお送りください。
                 通常24時間以内に返信いたします。
               </p>
               <a
                 href="https://line.me/ti/p/8yg5v22ilf"
-                className="group inline-flex items-center gap-3 px-10 py-4 rounded-xl text-base font-bold text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+                className="group inline-flex items-center gap-3 px-10 py-4 rounded-lg text-base font-bold text-white transition-all duration-300 hover:opacity-90"
                 style={{
                   fontFamily: "var(--font-display)",
                   backgroundColor: "#06C755",
@@ -119,7 +114,7 @@ export default function ContactPage() {
 
         {/* Email alternative */}
         <FadeInSection>
-          <div className="mt-8 rounded-xl border border-border bg-bg-card p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-6 rounded-lg border border-border bg-bg-secondary p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent-blue/10">
                 <Mail size={18} className="text-accent-blue" />

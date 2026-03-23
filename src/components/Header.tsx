@@ -27,7 +27,7 @@ export function Header() {
               className="text-xl font-bold tracking-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <span className="gradient-text">K</span>
+              <span className="text-accent-blue">K</span>
               <span className="text-text-primary">uwajima</span>
             </span>
           </Link>
@@ -53,11 +53,7 @@ export function Header() {
                   {isActive && (
                     <motion.div
                       layoutId="nav-indicator"
-                      className="absolute bottom-0 left-2 right-2 h-px"
-                      style={{
-                        background:
-                          "linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-purple))",
-                      }}
+                      className="absolute bottom-0 left-2 right-2 h-px bg-accent-blue"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -105,7 +101,7 @@ export function Header() {
                     <span
                       className={
                         pathname === item.href
-                          ? "gradient-text"
+                          ? "text-accent-blue"
                           : "text-text-secondary hover:text-text-primary"
                       }
                     >

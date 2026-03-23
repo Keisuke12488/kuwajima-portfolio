@@ -36,12 +36,13 @@
 
   body {
     font-family: var(--font-body);
+    line-height: 1.9;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: rgba(139, 92, 246, 0.3);
+    background-color: rgba(59, 130, 246, 0.3);
     color: var(--color-text-primary);
   }
 }
@@ -54,24 +55,6 @@
     background-clip: text;
   }
 
-  .gradient-border {
-    position: relative;
-  }
-
-  .gradient-border::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple), var(--color-accent-pink));
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    -webkit-mask-composite: xor;
-    pointer-events: none;
-  }
-
-
   .noise-overlay {
     position: fixed;
     inset: 0;
@@ -83,20 +66,10 @@
 
   .hero-grid {
     background-image:
-      linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(59, 130, 246, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.015) 1px, transparent 1px);
     background-size: 80px 80px;
   }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
 }
 
 @keyframes slide-up {

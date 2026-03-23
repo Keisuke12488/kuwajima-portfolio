@@ -22,8 +22,8 @@ const aiFields = [
 ];
 
 const stats = [
-  { value: "7+", label: "AI構築プロジェクト" },
-  { value: "120分→10分", label: "記録業務の短縮" },
+  { value: "100万+", label: "総フォロワー" },
+  { value: "7+", label: "AI構築実績" },
   { value: "6+", label: "SNSチャンネル運用" },
 ];
 
@@ -32,13 +32,13 @@ export default function HomePage() {
     <>
       {/* ===== HERO ===== */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-grid">
-        {/* Ambient orbs */}
+        {/* Ambient orbs — 控えめに */}
         <div
-          className="absolute top-1/4 -left-32 w-96 h-96 rounded-full blur-[120px] opacity-20"
+          className="absolute top-1/3 -left-48 w-72 h-72 rounded-full blur-[140px] opacity-10"
           style={{ background: "var(--color-accent-blue)" }}
         />
         <div
-          className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full blur-[120px] opacity-15"
+          className="absolute bottom-1/3 -right-48 w-64 h-64 rounded-full blur-[140px] opacity-8"
           style={{ background: "var(--color-accent-purple)" }}
         />
 
@@ -46,7 +46,7 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
           >
             <span
               className="inline-block text-sm font-medium tracking-wide uppercase text-text-secondary mb-6 px-4 py-1.5 rounded-full border border-border"
@@ -59,7 +59,7 @@ export default function HomePage() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8"
             style={{ fontFamily: "var(--font-display)" }}
           >
@@ -71,8 +71,8 @@ export default function HomePage() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed"
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12"
           >
             AIの事業実装とSNS戦略設計の二刀流。
             <br className="hidden sm:block" />
@@ -82,49 +82,29 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link
               href="/contact"
-              className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-white overflow-hidden transition-all duration-300"
-              style={{
-                fontFamily: "var(--font-display)",
-                background: "linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple))",
-              }}
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-lg text-sm font-semibold text-white bg-accent-blue hover:bg-accent-blue-light transition-colors duration-300"
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              <span className="relative z-10">お問い合わせ</span>
+              <span>お問い合わせ</span>
               <ArrowRight
                 size={16}
-                className="relative z-10 transition-transform group-hover:translate-x-1"
+                className="transition-transform group-hover:translate-x-1"
               />
-              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-medium text-text-secondary border border-border hover:border-border-light hover:text-text-primary transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-sm font-medium text-text-secondary border border-border hover:border-border-light hover:text-text-primary transition-all duration-300"
               style={{ fontFamily: "var(--font-display)" }}
             >
               実績を見る
             </Link>
           </motion.div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.8 }}
-            className="w-5 h-8 rounded-full border border-text-muted flex items-start justify-center p-1.5"
-          >
-            <div className="w-1 h-1.5 rounded-full bg-text-muted" />
-          </motion.div>
-        </motion.div>
       </section>
 
       {/* ===== DUAL DOMAINS ===== */}
@@ -143,7 +123,7 @@ export default function HomePage() {
             >
               ふたつの武器で、事業を動かす。
             </h2>
-            <p className="text-text-secondary text-lg max-w-xl mb-16 leading-relaxed">
+            <p className="text-text-secondary text-lg max-w-xl mb-16">
               AIで業務を自動化し、SNSで認知を拡大する。
               テクノロジーとマーケティング、両輪で事業成長を設計します。
             </p>
@@ -152,9 +132,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6">
             {/* AI Domain */}
             <FadeInSection>
-              <div className="relative group rounded-2xl border border-border bg-bg-card p-8 md:p-10 transition-all duration-500 hover:border-border-light">
-                <div className="absolute top-0 right-0 w-48 h-48 rounded-full blur-[100px] opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-accent-blue" />
-
+              <div className="rounded-xl border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent-blue/10">
                     <Brain size={20} className="text-accent-blue" />
@@ -167,7 +145,7 @@ export default function HomePage() {
                   </h3>
                 </div>
 
-                <p className="text-text-secondary mb-8 leading-relaxed">
+                <p className="text-text-secondary mb-8">
                   業界の業務フローを理解し、AIで本質的な課題を解決する。
                   PoC設計から本番実装まで、事業に実装可能なAIを構築します。
                 </p>
@@ -176,7 +154,7 @@ export default function HomePage() {
                   {aiFields.map((field) => (
                     <div
                       key={field.label}
-                      className="flex items-center gap-2.5 p-3 rounded-lg bg-bg-primary/50 border border-border/50"
+                      className="flex items-center gap-2.5 p-3 rounded-md bg-bg-primary/50 border border-border/50"
                     >
                       <field.icon size={16} className="text-accent-blue shrink-0" />
                       <div>
@@ -190,10 +168,8 @@ export default function HomePage() {
             </FadeInSection>
 
             {/* SNS Domain */}
-            <FadeInSection delay={0.15}>
-              <div className="relative group rounded-2xl border border-border bg-bg-card p-8 md:p-10 transition-all duration-500 hover:border-border-light">
-                <div className="absolute top-0 right-0 w-48 h-48 rounded-full blur-[100px] opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-accent-purple" />
-
+            <FadeInSection delay={0.12}>
+              <div className="rounded-xl border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent-purple/10">
                     <Megaphone size={20} className="text-accent-purple" />
@@ -206,7 +182,7 @@ export default function HomePage() {
                   </h3>
                 </div>
 
-                <p className="text-text-secondary mb-8 leading-relaxed">
+                <p className="text-text-secondary mb-8">
                   アルゴリズムの構造を理解した上で、
                   コンテンツ戦略とブランド設計をトータルで支援します。
                 </p>
@@ -220,7 +196,7 @@ export default function HomePage() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className="flex items-center gap-2.5 p-3 rounded-lg bg-bg-primary/50 border border-border/50"
+                      className="flex items-center gap-2.5 p-3 rounded-md bg-bg-primary/50 border border-border/50"
                     >
                       <Zap size={14} className="text-accent-purple shrink-0" />
                       <p className="text-sm font-medium">{item}</p>
@@ -234,10 +210,10 @@ export default function HomePage() {
       </section>
 
       {/* ===== STATS ===== */}
-      <section className="py-24 px-6">
+      <section className="py-20 px-6">
         <StaggerContainer className="mx-auto max-w-4xl grid grid-cols-3 gap-8">
           {stats.map((stat) => (
-            <StaggerItem key={stat.label} className="text-center">
+            <StaggerItem key={stat.label}>
               <p
                 className="text-4xl md:text-5xl font-extrabold text-accent-blue mb-2"
                 style={{ fontFamily: "var(--font-display)" }}
@@ -251,20 +227,13 @@ export default function HomePage() {
       </section>
 
       {/* ===== PRODUCT TEASER ===== */}
-      <section className="py-40 px-6">
+      <section className="py-28 px-6">
         <div className="mx-auto max-w-6xl">
           <FadeInSection>
-            <div className="relative rounded-2xl border border-border bg-bg-card overflow-hidden">
-              <div
-                className="absolute inset-0 opacity-5"
-                style={{
-                  background:
-                    "radial-gradient(ellipse at 30% 50%, var(--color-accent-blue), transparent 60%), radial-gradient(ellipse at 70% 50%, var(--color-accent-purple), transparent 60%)",
-                }}
-              />
-              <div className="relative p-10 md:p-16 text-center">
+            <div className="rounded-xl border border-border bg-bg-secondary overflow-hidden">
+              <div className="p-10 md:p-16">
                 <span
-                  className="inline-block text-xs font-medium tracking-wide uppercase text-accent-purple mb-4 px-3 py-1 rounded-full border border-accent-purple/20 bg-accent-purple/5"
+                  className="inline-block text-xs font-medium tracking-wide uppercase text-accent-blue mb-4 px-3 py-1 rounded-md border border-accent-blue/20 bg-accent-blue/5"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Product — PoC募集中
@@ -275,7 +244,7 @@ export default function HomePage() {
                 >
                   Welza
                 </h2>
-                <p className="text-text-secondary text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+                <p className="text-text-secondary text-lg max-w-xl mb-8">
                   AIがチェックワークフローを丸ごと設計・運用。
                   チーム間の品質管理を、属人化から仕組みに変える。
                 </p>
@@ -294,34 +263,28 @@ export default function HomePage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="py-32 px-6">
+      <section className="py-36 px-6">
         <FadeInSection>
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl">
             <h2
               className="text-3xl md:text-5xl font-bold tracking-tight mb-6"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              一緒に、
-              <span className="gradient-text">事業を動かしませんか？</span>
+              一緒に、事業を動かしませんか？
             </h2>
             <p className="text-text-secondary text-lg mb-10">
               AI導入のご相談も、SNS戦略のご相談も、お気軽にどうぞ。
             </p>
             <Link
               href="/contact"
-              className="group relative inline-flex items-center gap-2 px-10 py-4 rounded-xl text-sm font-semibold text-white overflow-hidden transition-all duration-300"
-              style={{
-                fontFamily: "var(--font-display)",
-                background:
-                  "linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple))",
-              }}
+              className="group inline-flex items-center gap-2 px-10 py-4 rounded-lg text-sm font-semibold text-white bg-accent-blue hover:bg-accent-blue-light transition-colors duration-300"
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              <span className="relative z-10">お問い合わせ</span>
+              <span>お問い合わせ</span>
               <ArrowRight
                 size={16}
-                className="relative z-10 transition-transform group-hover:translate-x-1"
+                className="transition-transform group-hover:translate-x-1"
               />
-              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>
           </div>
         </FadeInSection>
