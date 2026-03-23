@@ -8,22 +8,16 @@ const consultationTypes = [
     icon: Brain,
     title: "AI導入のご相談",
     desc: "業務のAI化、PoC構築、プロダクト開発など",
-    color: "text-accent-blue",
-    bg: "bg-accent-blue/10",
   },
   {
     icon: Megaphone,
     title: "SNS戦略のご相談",
     desc: "コンテンツ戦略、ブランディング、運用支援など",
-    color: "text-accent-purple",
-    bg: "bg-accent-purple/10",
   },
   {
     icon: HelpCircle,
     title: "その他のご相談",
     desc: "まだ具体的に決まっていなくてもOKです",
-    color: "text-text-secondary",
-    bg: "bg-bg-primary",
   },
 ];
 
@@ -33,7 +27,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-4xl">
         <FadeInSection>
           <p
-            className="text-sm font-medium tracking-wide uppercase text-accent-blue mb-4"
+            className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Contact
@@ -44,7 +38,7 @@ export default function ContactPage() {
           >
             お問い合わせ
           </h1>
-          <p className="text-text-secondary text-lg max-w-2xl mb-16">
+          <p className="text-text-secondary max-w-2xl mb-20">
             「まだ具体的に決まっていない」という段階でも大丈夫です。
             <br />
             お気軽にご相談ください。
@@ -52,73 +46,73 @@ export default function ContactPage() {
         </FadeInSection>
 
         {/* Consultation Types */}
-        <StaggerContainer className="grid sm:grid-cols-3 gap-4 mb-16">
+        <StaggerContainer className="grid sm:grid-cols-3 gap-px bg-border mb-20">
           {consultationTypes.map((item) => (
             <StaggerItem key={item.title}>
-              <div className="rounded-lg border border-border bg-bg-secondary p-6 h-full">
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${item.bg} mb-4`}>
-                  <item.icon size={20} className={item.color} />
-                </div>
+              <div className="bg-bg-primary p-8 h-full">
+                <item.icon size={18} className="text-text-muted mb-5" />
                 <h3
-                  className="text-sm font-bold mb-1"
+                  className="text-sm font-bold mb-1.5"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {item.title}
                 </h3>
-                <p className="text-xs text-text-secondary">{item.desc}</p>
+                <p className="text-xs text-text-secondary leading-relaxed">{item.desc}</p>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
 
-        {/* LINE CTA - Main */}
+        {/* LINE CTA */}
         <FadeInSection>
-          <div className="rounded-lg border border-border bg-bg-secondary overflow-hidden">
-            <div className="p-10 md:p-14">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#06C755" }}>
-                  <MessageCircle size={24} className="text-white" />
+          <div className="border-t border-border pt-16">
+            <div className="md:flex md:items-start md:gap-16">
+              <div className="md:max-w-sm mb-8 md:mb-0">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#06C755" }}>
+                    <MessageCircle size={18} className="text-white" />
+                  </div>
+                  <h2
+                    className="text-xl font-bold tracking-tight"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    LINEでご相談
+                  </h2>
                 </div>
-                <h2
-                  className="text-2xl md:text-3xl font-bold tracking-tight"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  LINEでお気軽にご相談ください
-                </h2>
+                <p className="text-sm text-text-secondary">
+                  友だち追加後、ご相談内容をメッセージでお送りください。
+                  通常24時間以内に返信いたします。
+                </p>
               </div>
-              <p className="text-text-secondary mb-8 max-w-lg">
-                友だち追加後、ご相談内容をメッセージでお送りください。
-                通常24時間以内に返信いたします。
-              </p>
-              <a
-                href="https://line.me/ti/p/8yg5v22ilf"
-                className="group inline-flex items-center gap-3 px-10 py-4 rounded-lg text-base font-bold text-white transition-all duration-300 hover:opacity-90"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  backgroundColor: "#06C755",
-                }}
-              >
-                <MessageCircle size={20} />
-                LINE で相談する
-                <ArrowRight
-                  size={16}
-                  className="transition-transform group-hover:translate-x-1"
-                />
-              </a>
-              <p className="text-xs text-text-muted mt-4">
-                ※ LINEの友だち追加ページに移動します
-              </p>
+              <div className="md:flex-1 md:pt-1">
+                <a
+                  href="https://line.me/ti/p/8yg5v22ilf"
+                  className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-md text-sm font-bold text-white transition-opacity duration-200 hover:opacity-90"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    backgroundColor: "#06C755",
+                  }}
+                >
+                  <MessageCircle size={18} />
+                  LINE で相談する
+                  <ArrowRight
+                    size={14}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </a>
+                <p className="text-xs text-text-muted mt-3">
+                  LINEの友だち追加ページに移動します
+                </p>
+              </div>
             </div>
           </div>
         </FadeInSection>
 
-        {/* Email alternative */}
+        {/* Email */}
         <FadeInSection>
-          <div className="mt-6 rounded-lg border border-border bg-bg-secondary p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent-blue/10">
-                <Mail size={18} className="text-accent-blue" />
-              </div>
+          <div className="mt-12 border-t border-border pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <Mail size={16} className="text-text-muted" />
               <div>
                 <p
                   className="text-sm font-semibold"
@@ -126,14 +120,14 @@ export default function ContactPage() {
                 >
                   メールでのお問い合わせ
                 </p>
-                <p className="text-xs text-text-secondary">
+                <p className="text-xs text-text-muted">
                   LINEが難しい場合はメールでも受け付けています
                 </p>
               </div>
             </div>
             <a
               href="mailto:kei4733.88@gmail.com"
-              className="text-sm font-medium text-accent-blue hover:text-accent-blue-light transition-colors whitespace-nowrap"
+              className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors whitespace-nowrap"
               style={{ fontFamily: "var(--font-display)" }}
             >
               メールを送る →

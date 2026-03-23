@@ -7,7 +7,6 @@ import {
   Brain,
   Megaphone,
   ArrowRight,
-  Zap,
   Building2,
   FileText,
   Home as HomeIcon,
@@ -32,25 +31,15 @@ export default function HomePage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-grid">
-        {/* Ambient orbs — 控えめに */}
-        <div
-          className="absolute top-1/3 -left-48 w-72 h-72 rounded-full blur-[140px] opacity-10"
-          style={{ background: "var(--color-accent-blue)" }}
-        />
-        <div
-          className="absolute bottom-1/3 -right-48 w-64 h-64 rounded-full blur-[140px] opacity-[0.06]"
-          style={{ background: "var(--color-accent-blue-light)" }}
-        />
-
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="relative z-10 mx-auto max-w-5xl px-6 text-center pt-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
           >
             <span
-              className="inline-block text-sm font-medium tracking-wide uppercase text-text-secondary mb-6 px-4 py-1.5 rounded-full border border-border"
+              className="inline-block text-xs font-medium tracking-widest uppercase text-text-muted mb-8"
               style={{ fontFamily: "var(--font-display)" }}
             >
               AI × SNS
@@ -58,7 +47,7 @@ export default function HomePage() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8"
@@ -70,10 +59,10 @@ export default function HomePage() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12"
+            className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-14"
           >
             AIの事業実装とSNS戦略設計の二刀流。
             <br className="hidden sm:block" />
@@ -81,25 +70,25 @@ export default function HomePage() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-lg text-sm font-semibold text-white bg-accent-blue hover:bg-accent-blue-light transition-colors duration-300"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-sm font-semibold text-white bg-accent-blue hover:bg-accent-blue-light transition-colors duration-300"
               style={{ fontFamily: "var(--font-display)" }}
             >
               <span>お問い合わせ</span>
               <ArrowRight
-                size={16}
-                className="transition-transform group-hover:translate-x-1"
+                size={15}
+                className="transition-transform group-hover:translate-x-0.5"
               />
             </Link>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-sm font-medium text-text-secondary border border-border hover:border-border-light hover:text-text-primary transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-300"
               style={{ fontFamily: "var(--font-display)" }}
             >
               実績を見る
@@ -108,12 +97,29 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== STATS ===== */}
+      <section className="py-24 px-6 border-t border-border">
+        <StaggerContainer className="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-4 gap-12">
+          {stats.map((stat) => (
+            <StaggerItem key={stat.label}>
+              <p
+                className="text-4xl md:text-5xl font-bold text-text-primary mb-2"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {stat.value}
+              </p>
+              <p className="text-sm text-text-muted">{stat.label}</p>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </section>
+
       {/* ===== DUAL DOMAINS ===== */}
-      <section className="py-24 px-6">
-        <div className="mx-auto max-w-6xl">
+      <section className="py-32 px-6">
+        <div className="mx-auto max-w-5xl">
           <FadeInSection>
             <p
-              className="text-sm font-medium tracking-wide uppercase text-accent-blue mb-4"
+              className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Two Domains
@@ -124,41 +130,39 @@ export default function HomePage() {
             >
               ふたつの武器で、事業を動かす。
             </h2>
-            <p className="text-text-secondary text-lg max-w-xl mb-16">
+            <p className="text-text-secondary max-w-xl mb-20">
               AIで業務を自動化し、SNSで認知を拡大する。
               テクノロジーとマーケティング、両輪で事業成長を設計します。
             </p>
           </FadeInSection>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-px bg-border">
             {/* AI Domain */}
             <FadeInSection>
-              <div className="rounded-lg border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
+              <div className="bg-bg-primary p-8 md:p-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent-blue/10">
-                    <Brain size={20} className="text-accent-blue" />
-                  </div>
+                  <Brain size={18} className="text-accent-blue" />
                   <h3
-                    className="text-xl font-bold"
+                    className="text-lg font-bold"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     AI事業化
                   </h3>
                 </div>
 
-                <p className="text-text-secondary mb-8">
+                <p className="text-text-secondary text-sm mb-8 leading-relaxed">
                   業界の業務フローを理解し、AIで本質的な課題を解決する。
                   PoC設計から本番実装まで、事業に実装可能なAIを構築します。
                 </p>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-3">
                   {aiFields.map((field) => (
                     <div
                       key={field.label}
-                      className="flex items-center gap-2.5 p-3 rounded-md bg-bg-primary/50 border border-border/50"
+                      className="flex items-center gap-3"
                     >
-                      <field.icon size={16} className="text-accent-blue shrink-0" />
-                      <div>
+                      <field.icon size={14} className="text-text-muted shrink-0" />
+                      <div className="flex items-baseline gap-2">
                         <p className="text-sm font-medium">{field.label}</p>
                         <p className="text-xs text-text-muted">{field.desc}</p>
                       </div>
@@ -169,21 +173,19 @@ export default function HomePage() {
             </FadeInSection>
 
             {/* SNS Domain */}
-            <FadeInSection delay={0.12}>
-              <div className="rounded-lg border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
+            <FadeInSection delay={0.08}>
+              <div className="bg-bg-primary p-8 md:p-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent-purple/10">
-                    <Megaphone size={20} className="text-accent-purple" />
-                  </div>
+                  <Megaphone size={18} className="text-accent-blue" />
                   <h3
-                    className="text-xl font-bold"
+                    className="text-lg font-bold"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     SNS設計
                   </h3>
                 </div>
 
-                <p className="text-text-secondary mb-8">
+                <p className="text-text-secondary text-sm mb-8 leading-relaxed">
                   6チャンネル・総フォロワー170万人超の運用実績。
                   アルゴリズムの構造を理解した上で、
                   コンテンツ戦略とブランド設計をトータルで支援します。
@@ -198,9 +200,9 @@ export default function HomePage() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className="flex items-center gap-2.5 p-3 rounded-md bg-bg-primary/50 border border-border/50"
+                      className="flex items-center gap-3"
                     >
-                      <Zap size={14} className="text-accent-purple shrink-0" />
+                      <span className="w-1 h-1 rounded-full bg-text-muted shrink-0" />
                       <p className="text-sm font-medium">{item}</p>
                     </div>
                   ))}
@@ -211,31 +213,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== STATS ===== */}
-      <section className="py-20 px-6">
-        <StaggerContainer className="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-4 gap-8">
-          {stats.map((stat) => (
-            <StaggerItem key={stat.label}>
-              <p
-                className="text-4xl md:text-5xl font-extrabold text-accent-blue mb-2"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {stat.value}
-              </p>
-              <p className="text-sm text-text-secondary">{stat.label}</p>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </section>
-
       {/* ===== PRODUCT TEASER ===== */}
-      <section className="py-28 px-6">
-        <div className="mx-auto max-w-6xl">
+      <section className="py-32 px-6 border-t border-border">
+        <div className="mx-auto max-w-5xl">
           <FadeInSection>
-            <div className="rounded-lg border-l-2 border-l-accent-blue border border-border bg-bg-secondary overflow-hidden">
-              <div className="p-10 md:p-16">
+            <div className="md:flex md:items-start md:justify-between md:gap-16">
+              <div className="md:max-w-md">
                 <span
-                  className="inline-block text-xs font-medium tracking-wide uppercase text-accent-blue mb-4 px-3 py-1 rounded-md border border-accent-blue/20 bg-accent-blue/5"
+                  className="inline-block text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Product — PoC募集中
@@ -246,7 +231,9 @@ export default function HomePage() {
                 >
                   Welza
                 </h2>
-                <p className="text-text-secondary text-lg max-w-xl mb-8">
+              </div>
+              <div className="md:flex-1 md:pt-12">
+                <p className="text-text-secondary mb-8">
                   AIがチェックワークフローを丸ごと設計・運用。
                   チーム間の品質管理を、属人化から仕組みに変える。
                 </p>
@@ -265,7 +252,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="py-36 px-6">
+      <section className="py-40 px-6">
         <FadeInSection>
           <div className="mx-auto max-w-3xl">
             <h2
@@ -274,18 +261,18 @@ export default function HomePage() {
             >
               一緒に、事業を動かしませんか？
             </h2>
-            <p className="text-text-secondary text-lg mb-10">
+            <p className="text-text-secondary mb-12">
               AI導入のご相談も、SNS戦略のご相談も、お気軽にどうぞ。
             </p>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-10 py-4 rounded-lg text-sm font-semibold text-white bg-accent-blue hover:bg-accent-blue-light transition-colors duration-300"
+              className="group inline-flex items-center gap-2 px-10 py-3.5 rounded-md text-sm font-semibold text-white bg-accent-blue hover:bg-accent-blue-light transition-colors duration-300"
               style={{ fontFamily: "var(--font-display)" }}
             >
               <span>お問い合わせ</span>
               <ArrowRight
-                size={16}
-                className="transition-transform group-hover:translate-x-1"
+                size={15}
+                className="transition-transform group-hover:translate-x-0.5"
               />
             </Link>
           </div>

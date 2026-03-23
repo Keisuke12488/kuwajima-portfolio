@@ -200,13 +200,13 @@ const snsData: SNSCategory[] = [
   },
 ];
 
-const statusColors: Record<string, string> = {
-  "PoC募集中": "border-accent-blue/30 bg-accent-blue/5 text-accent-blue",
-  "デモ公開中": "border-accent-blue/30 bg-accent-blue/5 text-accent-blue",
-  "運用中": "border-green-500/30 bg-green-500/5 text-green-400",
-  "検証完了": "border-accent-purple/30 bg-accent-purple/5 text-accent-purple",
-  "設計・提案済み": "border-yellow-500/30 bg-yellow-500/5 text-yellow-400",
-  "開発中": "border-accent-blue/30 bg-accent-blue/5 text-accent-blue",
+const statusStyle: Record<string, string> = {
+  "PoC募集中": "text-accent-blue",
+  "デモ公開中": "text-accent-blue",
+  "運用中": "text-green-400",
+  "検証完了": "text-text-secondary",
+  "設計・提案済み": "text-text-secondary",
+  "開発中": "text-accent-blue",
 };
 
 export default function PortfolioPage() {
@@ -218,7 +218,7 @@ export default function PortfolioPage() {
         {/* ヘッダー */}
         <FadeInSection>
           <p
-            className="text-sm font-medium tracking-wide uppercase text-accent-blue mb-4"
+            className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Portfolio
@@ -229,7 +229,7 @@ export default function PortfolioPage() {
           >
             実績・プロジェクト
           </h1>
-          <p className="text-text-secondary text-lg max-w-2xl mb-12">
+          <p className="text-text-secondary max-w-2xl mb-16">
             AI事業化とSNS運用の領域で手がけてきたプロジェクト。
             構想から実装まで、一気通貫で推進しています。
           </p>
@@ -237,29 +237,29 @@ export default function PortfolioPage() {
 
         {/* セクションナビ */}
         <FadeInSection>
-          <div className="flex gap-2 mb-12">
+          <div className="flex gap-6 mb-16 border-b border-border">
             <button
               onClick={() => setActiveTab("ai")}
-              className={`flex items-center gap-2 px-6 py-3 rounded-md text-sm font-semibold transition-all duration-300 border ${
+              className={`flex items-center gap-2 pb-3 text-sm font-semibold transition-colors duration-200 border-b-2 -mb-px ${
                 activeTab === "ai"
-                  ? "border-accent-blue/40 bg-accent-blue/10 text-accent-blue"
-                  : "border-border bg-bg-secondary text-text-secondary hover:border-border-light hover:text-text-primary"
+                  ? "border-accent-blue text-text-primary"
+                  : "border-transparent text-text-muted hover:text-text-secondary"
               }`}
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <Brain size={16} />
+              <Brain size={15} />
               AI事業
             </button>
             <button
               onClick={() => setActiveTab("sns")}
-              className={`flex items-center gap-2 px-6 py-3 rounded-md text-sm font-semibold transition-all duration-300 border ${
+              className={`flex items-center gap-2 pb-3 text-sm font-semibold transition-colors duration-200 border-b-2 -mb-px ${
                 activeTab === "sns"
-                  ? "border-accent-purple/40 bg-accent-purple/10 text-accent-purple"
-                  : "border-border bg-bg-secondary text-text-secondary hover:border-border-light hover:text-text-primary"
+                  ? "border-accent-blue text-text-primary"
+                  : "border-transparent text-text-muted hover:text-text-secondary"
               }`}
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <Megaphone size={16} />
+              <Megaphone size={15} />
               SNS運用
             </button>
           </div>
@@ -270,100 +270,87 @@ export default function PortfolioPage() {
         {activeTab === "ai" && (
           <motion.div
             key="ai"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
           >
           {/* AI実績サマリー */}
-          <FadeInSection>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-10">
-              {[
-                { value: "7+", label: "AI構築実績" },
-                { value: "700+", label: "累計削減時間（時間）" },
-                { value: "4", label: "業界特化" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p
-                    className="text-3xl md:text-4xl font-bold text-accent-blue mb-1"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {stat.value}
-                  </p>
-                  <p className="text-sm text-text-secondary">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </FadeInSection>
+          <div className="grid grid-cols-3 gap-8 mb-16">
+            {[
+              { value: "7+", label: "AI構築実績" },
+              { value: "700+", label: "累計削減時間（時間）" },
+              { value: "4", label: "業界特化" },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p
+                  className="text-3xl md:text-4xl font-bold text-text-primary mb-1"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {stat.value}
+                </p>
+                <p className="text-xs text-text-muted">{stat.label}</p>
+              </div>
+            ))}
+          </div>
 
-          <StaggerContainer className="space-y-5">
-            {aiProjects.map((project) => {
-              const statusClass = statusColors[project.status] || "border-border bg-bg-primary text-text-muted";
-              return (
-                <StaggerItem key={project.title}>
-                  <div className="rounded-lg border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
-                    <div className="flex flex-col md:flex-row md:items-start gap-6">
-                      <div className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0 bg-accent-blue/10">
-                        <project.icon size={22} className="text-accent-blue" />
+          <StaggerContainer className="space-y-px bg-border">
+            {aiProjects.map((project) => (
+              <StaggerItem key={project.title}>
+                <div className="bg-bg-primary p-8 md:p-10">
+                  <div className="flex flex-col md:flex-row md:items-start gap-5">
+                    <project.icon size={18} className="text-text-muted shrink-0 mt-1" />
+
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-baseline gap-3 mb-2">
+                        <h3
+                          className="text-lg font-bold"
+                          style={{ fontFamily: "var(--font-display)" }}
+                        >
+                          {project.title}
+                        </h3>
+                        <span
+                          className={`text-xs font-medium ${statusStyle[project.status] || "text-text-muted"}`}
+                          style={{ fontFamily: "var(--font-display)" }}
+                        >
+                          {project.status}
+                        </span>
                       </div>
 
-                      <div className="flex-1 min-w-0">
-                        <div className="flex flex-wrap items-center gap-3 mb-3">
-                          <h3
-                            className="text-xl font-bold"
-                            style={{ fontFamily: "var(--font-display)" }}
-                          >
-                            {project.title}
-                          </h3>
-                          <span
-                            className={`text-xs font-medium px-2.5 py-0.5 rounded-md border ${statusClass}`}
-                            style={{ fontFamily: "var(--font-display)" }}
-                          >
-                            {project.status}
-                          </span>
-                        </div>
+                      <p className="text-sm text-text-secondary mb-4 leading-relaxed">
+                        {project.description}
+                      </p>
 
-                        <p className="text-text-secondary mb-4">
-                          {project.description}
+                      {project.results && (
+                        <p className="text-sm font-medium text-accent-blue mb-4">
+                          {project.results}
                         </p>
+                      )}
 
-                        {project.results && (
-                          <div className="mb-4 px-4 py-3 rounded-md bg-accent-blue/5 border border-accent-blue/15">
-                            <p className="text-sm font-medium text-accent-blue">
-                              {project.results}
-                            </p>
-                          </div>
-                        )}
-
-                        {/* 担当プロセス */}
-                        <div className="flex flex-wrap gap-1.5 mb-3">
-                          {project.processes.map((p) => (
-                            <span
-                              key={p}
-                              className="text-xs px-2.5 py-1 rounded-md bg-accent-blue/8 border border-accent-blue/15 text-accent-blue-light"
-                            >
-                              {p}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* 技術スタック */}
-                        <div className="flex flex-wrap gap-1.5">
-                          {project.tech.map((t) => (
-                            <span
-                              key={t}
-                              className="text-xs px-2.5 py-1 rounded-md bg-bg-primary border border-border text-text-muted"
-                            >
-                              {t}
-                            </span>
-                          ))}
-                        </div>
+                      {/* 担当プロセス + 技術スタック */}
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.processes.map((p) => (
+                          <span
+                            key={p}
+                            className="text-xs px-2 py-0.5 rounded-sm bg-bg-secondary text-text-secondary"
+                          >
+                            {p}
+                          </span>
+                        ))}
+                        {project.tech.map((t) => (
+                          <span
+                            key={t}
+                            className="text-xs px-2 py-0.5 rounded-sm text-text-muted"
+                          >
+                            {t}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>
-                </StaggerItem>
-              );
-            })}
+                </div>
+              </StaggerItem>
+            ))}
           </StaggerContainer>
           </motion.div>
         )}
@@ -372,79 +359,65 @@ export default function PortfolioPage() {
         {activeTab === "sns" && (
           <motion.div
             key="sns"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
           >
-          <div className="space-y-12">
+          <div className="space-y-16">
             {/* 実績サマリー */}
-            <FadeInSection>
-              <div className="grid grid-cols-3 gap-6 mb-4">
-                {snsStats.map((stat) => (
-                  <div key={stat.label}>
-                    <p
-                      className="text-3xl md:text-4xl font-bold text-accent-blue mb-1"
-                      style={{ fontFamily: "var(--font-display)" }}
-                    >
-                      {stat.value}
-                    </p>
-                    <p className="text-sm text-text-secondary">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </FadeInSection>
+            <div className="grid grid-cols-3 gap-8">
+              {snsStats.map((stat) => (
+                <div key={stat.label}>
+                  <p
+                    className="text-3xl md:text-4xl font-bold text-text-primary mb-1"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-text-muted">{stat.label}</p>
+                </div>
+              ))}
+            </div>
 
             {/* チャンネル一覧 */}
             {snsData.map((category) => (
-              <FadeInSection key={category.label}>
+              <div key={category.label}>
                 <h2
-                  className="text-lg font-bold mb-6 text-text-primary flex items-center gap-2"
+                  className="text-xs font-medium tracking-widest uppercase text-text-muted mb-8"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
-                  <span className={`w-1.5 h-1.5 rounded-full ${category.label === "企業チャンネル運用" ? "bg-accent-blue" : "bg-accent-purple"}`} />
                   {category.label}
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-px bg-border">
                   {category.channels.map((channel) => (
                     <div
                       key={channel.name}
-                      className="rounded-lg border border-border bg-bg-secondary p-6 md:p-8 transition-all duration-300 hover:border-border-light"
+                      className="bg-bg-primary p-6 md:p-8"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                         <div>
-                          <div className="flex items-center gap-3 mb-1">
+                          <div className="flex items-baseline gap-3 mb-1">
                             <h3
-                              className="text-lg font-bold"
+                              className="text-base font-bold"
                               style={{ fontFamily: "var(--font-display)" }}
                             >
                               {channel.name}
                             </h3>
                             {channel.subscribers && (
                               typeof channel.subscribers === "string" ? (
-                                <span
-                                  className="text-sm font-semibold text-accent-blue"
-                                  style={{ fontFamily: "var(--font-display)" }}
-                                >
+                                <span className="text-sm text-text-secondary">
                                   {channel.subscribers}
                                 </span>
                               ) : (
-                                <div className="flex items-center gap-2">
-                                  {channel.subscribers.map((s) => (
-                                    <span
-                                      key={s}
-                                      className="text-xs font-semibold text-accent-blue"
-                                      style={{ fontFamily: "var(--font-display)" }}
-                                    >
-                                      {s}
-                                    </span>
-                                  ))}
-                                </div>
+                                <span className="text-xs text-text-secondary">
+                                  {channel.subscribers.join(" / ")}
+                                </span>
                               )
                             )}
                           </div>
                           <p className="text-xs text-text-muted">
-                            運用期間: {channel.period}
+                            {channel.period}
                           </p>
                         </div>
 
@@ -455,10 +428,10 @@ export default function PortfolioPage() {
                               href={channel.youtube}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-text-muted hover:text-red-500 transition-colors"
+                              className="text-text-muted hover:text-text-secondary transition-colors"
                               aria-label={`${channel.name} YouTube`}
                             >
-                              <YouTubeIcon size={18} />
+                              <YouTubeIcon size={16} />
                             </a>
                           )}
                           {channel.tiktok && (
@@ -466,10 +439,10 @@ export default function PortfolioPage() {
                               href={channel.tiktok}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-text-muted hover:text-text-primary transition-colors"
+                              className="text-text-muted hover:text-text-secondary transition-colors"
                               aria-label={`${channel.name} TikTok`}
                             >
-                              <TikTokIcon size={18} />
+                              <TikTokIcon size={16} />
                             </a>
                           )}
                           {channel.instagram && (
@@ -477,10 +450,10 @@ export default function PortfolioPage() {
                               href={channel.instagram}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-text-muted hover:text-pink-500 transition-colors"
+                              className="text-text-muted hover:text-text-secondary transition-colors"
                               aria-label={`${channel.name} Instagram`}
                             >
-                              <InstagramIcon size={18} />
+                              <InstagramIcon size={16} />
                             </a>
                           )}
                         </div>
@@ -492,7 +465,7 @@ export default function PortfolioPage() {
                           {channel.roles.map((role) => (
                             <span
                               key={role}
-                              className="text-xs px-2.5 py-1 rounded-md bg-accent-purple/8 border border-accent-purple/15 text-accent-purple"
+                              className="text-xs px-2 py-0.5 rounded-sm bg-bg-secondary text-text-secondary"
                             >
                               {role}
                             </span>
@@ -502,7 +475,7 @@ export default function PortfolioPage() {
                     </div>
                   ))}
                 </div>
-              </FadeInSection>
+              </div>
             ))}
           </div>
           </motion.div>

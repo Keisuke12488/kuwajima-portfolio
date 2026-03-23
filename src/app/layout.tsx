@@ -52,7 +52,6 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-bg-primary text-text-primary antialiased">
-        <div className="noise-overlay" aria-hidden="true" />
         <Header />
         <main>{children}</main>
         <Footer />
