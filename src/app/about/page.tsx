@@ -129,7 +129,7 @@ export default function AboutPage() {
           <StaggerContainer className="grid sm:grid-cols-2 gap-5">
             {strengths.map((s) => (
               <StaggerItem key={s.title}>
-                <div className="rounded-xl border border-border bg-bg-secondary p-7 transition-all duration-300 hover:border-border-light h-full">
+                <div className="rounded-lg border border-border bg-bg-secondary p-7 transition-all duration-300 hover:border-border-light h-full">
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${s.bg} mb-4`}>
                     <s.icon size={20} className={s.color} />
                   </div>
@@ -168,7 +168,7 @@ export default function AboutPage() {
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {skills.map((group) => (
               <StaggerItem key={group.category}>
-                <div className="rounded-xl border border-border bg-bg-secondary p-6">
+                <div className="rounded-lg border border-border bg-bg-secondary p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <group.icon size={16} className="text-accent-blue" />
                     <h3
@@ -197,7 +197,7 @@ export default function AboutPage() {
         {/* ===== APPROACH ===== */}
         <section className="mt-24">
           <FadeInSection>
-            <div className="rounded-xl border border-border bg-bg-secondary p-10 md:p-14">
+            <div className="rounded-lg border-l-2 border-l-accent-blue border border-border bg-bg-secondary p-10 md:p-14">
               <p
                 className="text-sm font-medium tracking-wide uppercase text-accent-blue mb-4"
                 style={{ fontFamily: "var(--font-display)" }}

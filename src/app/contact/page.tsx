@@ -73,7 +73,7 @@ export default function ContactPage() {
 
         {/* LINE CTA - Main */}
         <FadeInSection>
-          <div className="rounded-xl border border-border bg-bg-secondary overflow-hidden">
+          <div className="rounded-lg border border-border bg-bg-secondary overflow-hidden">
             <div className="p-10 md:p-14">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#06C755" }}>

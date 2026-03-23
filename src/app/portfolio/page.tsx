@@ -240,7 +240,7 @@ export default function PortfolioPage() {
           <div className="flex gap-2 mb-12">
             <button
               onClick={() => setActiveTab("ai")}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 border ${
+              className={`flex items-center gap-2 px-6 py-3 rounded-md text-sm font-semibold transition-all duration-300 border ${
                 activeTab === "ai"
                   ? "border-accent-blue/40 bg-accent-blue/10 text-accent-blue"
                   : "border-border bg-bg-secondary text-text-secondary hover:border-border-light hover:text-text-primary"
@@ -252,7 +252,7 @@ export default function PortfolioPage() {
             </button>
             <button
               onClick={() => setActiveTab("sns")}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 border ${
+              className={`flex items-center gap-2 px-6 py-3 rounded-md text-sm font-semibold transition-all duration-300 border ${
                 activeTab === "sns"
                   ? "border-accent-purple/40 bg-accent-purple/10 text-accent-purple"
                   : "border-border bg-bg-secondary text-text-secondary hover:border-border-light hover:text-text-primary"
@@ -275,12 +275,33 @@ export default function PortfolioPage() {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
           >
+          {/* AI実績サマリー */}
+          <FadeInSection>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-10">
+              {[
+                { value: "7+", label: "AI構築実績" },
+                { value: "700+", label: "累計削減時間（時間）" },
+                { value: "4", label: "業界特化" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p
+                    className="text-3xl md:text-4xl font-bold text-accent-blue mb-1"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-text-secondary">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </FadeInSection>
+
           <StaggerContainer className="space-y-5">
             {aiProjects.map((project) => {
               const statusClass = statusColors[project.status] || "border-border bg-bg-primary text-text-muted";
               return (
                 <StaggerItem key={project.title}>
-                  <div className="rounded-xl border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
+                  <div className="rounded-lg border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
                     <div className="flex flex-col md:flex-row md:items-start gap-6">
                       <div className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0 bg-accent-blue/10">
                         <project.icon size={22} className="text-accent-blue" />
@@ -388,7 +409,7 @@ export default function PortfolioPage() {
                   {category.channels.map((channel) => (
                     <div
                       key={channel.name}
-                      className="rounded-xl border border-border bg-bg-secondary p-6 md:p-8 transition-all duration-300 hover:border-border-light"
+                      className="rounded-lg border border-border bg-bg-secondary p-6 md:p-8 transition-all duration-300 hover:border-border-light"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                         <div>

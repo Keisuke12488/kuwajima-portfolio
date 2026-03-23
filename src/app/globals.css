@@ -12,10 +12,8 @@
   --color-text-muted: #606080;
   --color-accent-blue: #3b82f6;
   --color-accent-blue-light: #60a5fa;
-  --color-accent-purple: #8b5cf6;
-  --color-accent-pink: #ec4899;
-  --color-accent-gradient-start: #3b82f6;
-  --color-accent-gradient-end: #ec4899;
+  --color-accent-purple: #d97706;
+  --color-accent-warm: #d97706;
 
   --font-display: "Sora", sans-serif;
   --font-body: "Noto Sans JP", sans-serif;
@@ -49,7 +47,7 @@
 
 @layer components {
   .gradient-text {
-    background: linear-gradient(135deg, var(--color-accent-blue) 0%, var(--color-accent-purple) 50%, var(--color-accent-pink) 100%);
+    background: linear-gradient(135deg, var(--color-accent-blue) 0%, var(--color-accent-blue-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

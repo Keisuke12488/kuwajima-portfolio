@@ -25,6 +25,7 @@ const stats = [
   { value: "170万+", label: "総フォロワー" },
   { value: "7+", label: "AI構築実績" },
   { value: "6+", label: "SNSチャンネル運用" },
+  { value: "700+", label: "累計削減時間（時間）" },
 ];
 
 export default function HomePage() {
@@ -38,8 +39,8 @@ export default function HomePage() {
           style={{ background: "var(--color-accent-blue)" }}
         />
         <div
-          className="absolute bottom-1/3 -right-48 w-64 h-64 rounded-full blur-[140px] opacity-8"
-          style={{ background: "var(--color-accent-purple)" }}
+          className="absolute bottom-1/3 -right-48 w-64 h-64 rounded-full blur-[140px] opacity-[0.06]"
+          style={{ background: "var(--color-accent-blue-light)" }}
         />
 
         <div className="relative z-10 mx-auto max-w-5xl px-6 text-center pt-20">
@@ -132,7 +133,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6">
             {/* AI Domain */}
             <FadeInSection>
-              <div className="rounded-xl border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
+              <div className="rounded-lg border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent-blue/10">
                     <Brain size={20} className="text-accent-blue" />
@@ -169,7 +170,7 @@ export default function HomePage() {
 
             {/* SNS Domain */}
             <FadeInSection delay={0.12}>
-              <div className="rounded-xl border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
+              <div className="rounded-lg border border-border bg-bg-secondary p-8 md:p-10 transition-all duration-300 hover:border-border-light">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent-purple/10">
                     <Megaphone size={20} className="text-accent-purple" />
@@ -212,7 +213,7 @@ export default function HomePage() {
 
       {/* ===== STATS ===== */}
       <section className="py-20 px-6">
-        <StaggerContainer className="mx-auto max-w-4xl grid grid-cols-3 gap-8">
+        <StaggerContainer className="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-4 gap-8">
           {stats.map((stat) => (
             <StaggerItem key={stat.label}>
               <p
@@ -231,7 +232,7 @@ export default function HomePage() {
       <section className="py-28 px-6">
         <div className="mx-auto max-w-6xl">
           <FadeInSection>
-            <div className="rounded-xl border border-border bg-bg-secondary overflow-hidden">
+            <div className="rounded-lg border-l-2 border-l-accent-blue border border-border bg-bg-secondary overflow-hidden">
               <div className="p-10 md:p-16">
                 <span
                   className="inline-block text-xs font-medium tracking-wide uppercase text-accent-blue mb-4 px-3 py-1 rounded-md border border-accent-blue/20 bg-accent-blue/5"
