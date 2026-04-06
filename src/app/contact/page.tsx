@@ -1,23 +1,23 @@
 "use client";
 
 import { FadeInSection, StaggerContainer, StaggerItem } from "@/components/Animations";
-import { MessageCircle, Mail, ArrowRight, Brain, Megaphone, HelpCircle } from "lucide-react";
+import { MessageCircle, Mail, ArrowRight, Brain, Workflow, Blocks } from "lucide-react";
 
 const consultationTypes = [
   {
     icon: Brain,
-    title: "AI導入のご相談",
-    desc: "業務のAI化、PoC構築、プロダクト開発など",
+    title: "業務AI導入のご相談",
+    desc: "属人化した業務の整理、AI化の仮説出し、導入方針の壁打ちなど",
   },
   {
-    icon: Megaphone,
-    title: "SNS戦略のご相談",
-    desc: "コンテンツ戦略、ブランディング、運用支援など",
+    icon: Workflow,
+    title: "業務フロー整理",
+    desc: "今の運用を崩さず、Slack・LINE・スプレッドシートの延長で設計したい場合",
   },
   {
-    icon: HelpCircle,
-    title: "その他のご相談",
-    desc: "まだ具体的に決まっていなくてもOKです",
+    icon: Blocks,
+    title: "PoC / 開発のご相談",
+    desc: "まずは小さく試したい、専用AIやプロダクトとして形にしたい場合",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
             className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Contact
+            相談する
           </p>
           <h1
             className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-text-primary"
@@ -39,9 +39,9 @@ export default function ContactPage() {
             お問い合わせ
           </h1>
           <p className="text-text-secondary max-w-2xl mb-20">
-            「まだ具体的に決まっていない」という段階でも大丈夫です。
-            <br />
-            お気軽にご相談ください。
+            「AIで何ができるかまだ分からない」という段階でも大丈夫です。
+            現場の業務や困りごとを伺いながら、
+            どこから着手するのがよいか一緒に整理します。
           </p>
         </FadeInSection>
 

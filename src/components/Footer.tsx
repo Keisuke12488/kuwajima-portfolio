@@ -14,10 +14,10 @@ export function Footer() {
 
           <nav className="flex items-center gap-6">
             {[
-              { href: "/", label: "Home" },
-              { href: "/about", label: "About" },
-              { href: "/portfolio", label: "Portfolio" },
-              { href: "/contact", label: "Contact" },
+              { href: "/", label: "トップ" },
+              { href: "/about", label: "自己紹介" },
+              { href: "/portfolio", label: "実績" },
+              { href: "/contact", label: "相談する" },
             ].map((item) => (
               <Link
                 key={item.href}

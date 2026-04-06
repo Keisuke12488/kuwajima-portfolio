@@ -4,27 +4,45 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FadeInSection, StaggerContainer, StaggerItem } from "@/components/Animations";
 import {
-  Brain,
-  Megaphone,
   ArrowRight,
-  Building2,
-  FileText,
-  Home as HomeIcon,
-  BarChart3,
+  Clock,
+  Target,
+  Zap,
+  Users,
 } from "lucide-react";
 
-const aiFields = [
-  { icon: Building2, label: "福祉AI", desc: "支援記録の自動生成", color: "#10b981" },
-  { icon: FileText, label: "税務AI", desc: "OCR×帳票処理の効率化", color: "#6366f1" },
-  { icon: HomeIcon, label: "不動産AI", desc: "業務プロセスのAI化", color: "#f59e0b" },
-  { icon: BarChart3, label: "広告AI", desc: "レポート自動化", color: "#ef4444" },
+const stats = [
+  { before: "120分", after: "10分", label: "福祉施設の記録業務を自動化" },
+  { before: "10時間", after: "10分", label: "広告シナリオ制作を仕組み化" },
+  { before: null, after: "7+", label: "業界横断のAI構築実績" },
+  { before: null, after: "170万+", label: "SNSでも再現した設計力" },
 ];
 
-const stats = [
-  { value: "170万+", label: "総フォロワー" },
-  { value: "7+", label: "AI構築実績" },
-  { value: "6+", label: "SNSチャンネル運用" },
-  { value: "700h+", label: "累計削減時間" },
+const caseStudies = [
+  {
+    icon: Clock,
+    label: "福祉施設AI",
+    title: "支援記録の自動化",
+    challengeLead: "大阪の福祉施設へ実際に足を運ぶと、手書き記録に毎日2時間かかっていた。",
+    challenge: "提出用フォーマットへの転記にもさらに時間がかかり、しかも新しいツールを増やすやり方は現場に定着しにくかった。",
+    approachLead: "現場の方とすり合わせながら、今のやり方のまま使える形を探した。",
+    approach: "SlackやLINEの延長で使える形に絞り、URLを開いて確認して少し直すだけの流れに落とし込んだ。",
+    resultBefore: "120分",
+    resultAfter: "10分",
+    quote: "「これだったらできるわね」と現場スタッフから即日評価。",
+  },
+  {
+    icon: Target,
+    label: "広告シナリオAI",
+    title: "クリエイティブ制作の仕組み化",
+    challengeLead: "シナリオ制作に毎回10時間。訴求の当て方が個人の勘に寄っていた。",
+    challenge: "どの見せ方・映像パターン・シナリオ構成が成果に繋がるか、体系的に整理されていなかった。",
+    approachLead: "過去データから勝ちパターンを抽出し、再現できる形に落とし込んだ。",
+    approach: "抽出したパターンをDB化し、商材情報を入れると最適なシナリオを出力できる専用AIを構築。",
+    resultBefore: "10時間",
+    resultAfter: "10分",
+    quote: "少し手直しするだけで、数十本のシナリオを30分で完成できる体制に。",
+  },
 ];
 
 export default function HomePage() {
@@ -42,7 +60,7 @@ export default function HomePage() {
               className="inline-block text-xs font-medium tracking-widest uppercase text-text-muted mb-8"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              AI × SNS
+              業務AI構築
             </span>
           </motion.div>
 
@@ -53,20 +71,20 @@ export default function HomePage() {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8 text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            あなた<span className="text-[#999999]">専用の</span>
+            今<span className="tracking-[-0.1em]">、</span>あの人が
+            <span className="text-[#999999]">抜けたら</span>
             <br />
-            テクノロジーを
+            終わる<span className="tracking-[-0.1em]">。</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-14"
+            className="text-xl md:text-2xl font-bold text-text-primary max-w-2xl mx-auto mb-14"
+            style={{ fontFamily: "var(--font-display)" }}
           >
-            AIの事業実装とSNS戦略設計の二刀流。
-            <br className="hidden sm:block" />
-            構想から実装まで、ビジネスの成長を一気通貫でサポート。
+            その不安、仕組みで消せます
           </motion.p>
 
           <motion.div
@@ -80,7 +98,7 @@ export default function HomePage() {
               className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-text-primary hover:opacity-80 transition-opacity duration-200"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <span>お問い合わせ</span>
+              <span>まず相談する</span>
               <ArrowRight
                 size={15}
                 className="transition-transform group-hover:translate-x-0.5"
@@ -102,19 +120,30 @@ export default function HomePage() {
         <StaggerContainer className="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-4 gap-12">
           {stats.map((stat) => (
             <StaggerItem key={stat.label}>
-              <p
-                className="text-5xl md:text-6xl font-bold text-text-secondary mb-2"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {stat.value}
-              </p>
-              <p className="text-sm text-text-muted">{stat.label}</p>
+              <div className="mb-2 sm:whitespace-nowrap" style={{ fontFamily: "var(--font-display)" }}>
+                {stat.before ? (
+                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                    <span className="text-xl sm:text-2xl md:text-3xl font-bold text-text-muted line-through decoration-1">
+                      {stat.before}
+                    </span>
+                    <span className="text-text-muted text-lg">→</span>
+                    <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
+                      {stat.after}
+                    </span>
+                  </div>
+                ) : (
+                  <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-secondary">
+                    {stat.after}
+                  </p>
+                )}
+              </div>
+              <p className="text-xs text-text-muted">{stat.label}</p>
             </StaggerItem>
           ))}
         </StaggerContainer>
       </section>
 
-      {/* ===== DUAL DOMAINS ===== */}
+      {/* ===== CASE STUDIES ===== */}
       <section className="py-32 px-6">
         <div className="mx-auto max-w-5xl">
           <FadeInSection>
@@ -122,132 +151,121 @@ export default function HomePage() {
               className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Two Domains
+              導入事例
             </p>
             <h2
               className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              ふたつの武器で、事業を動かす。
+              止まっていた業務を、回る仕組みに変える。
             </h2>
             <p className="text-text-secondary max-w-xl mb-20">
-              AIで業務を自動化し、SNSで認知を拡大する。
-              テクノロジーとマーケティング、両輪で事業成長を設計します。
+              作って終わりではなく、現場で続く形まで設計します。
             </p>
           </FadeInSection>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {/* AI Domain */}
-            <FadeInSection>
-              <div className="rounded-xl border border-border bg-bg-card p-8 md:p-12 transition-colors duration-200 hover:border-border-light">
-                <div className="flex items-center gap-3 mb-6">
-                  <Brain size={18} className="text-[#3b82f6]" />
-                  <h3
-                    className="text-lg font-bold text-text-primary"
+            {caseStudies.map((cs, i) => (
+              <FadeInSection key={cs.label} delay={i * 0.08}>
+                <div className="rounded-xl border border-border bg-bg-card p-8 md:p-12 transition-colors duration-200 hover:border-border-light h-full flex flex-col">
+                  <div className="flex items-center gap-3 mb-6">
+                    <cs.icon size={18} className="text-text-muted" />
+                    <div>
+                      <p className="text-xs text-text-muted">{cs.label}</p>
+                      <h3
+                        className="text-lg font-bold text-text-primary"
+                        style={{ fontFamily: "var(--font-display)" }}
+                      >
+                        {cs.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 text-sm text-text-secondary leading-relaxed flex-1">
+                    <div>
+                      <p className="text-xs font-medium text-text-muted mb-1">課題</p>
+                      <p className="font-semibold text-text-primary mb-1">{cs.challengeLead}</p>
+                      <p>{cs.challenge}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium text-text-muted mb-1">設計</p>
+                      <p className="font-semibold text-text-primary mb-1">{cs.approachLead}</p>
+                      <p>{cs.approach}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-border">
+                    <div
+                      className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2 sm:whitespace-nowrap"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      <span className="text-2xl md:text-3xl font-bold text-text-muted line-through decoration-1">
+                        {cs.resultBefore}
+                      </span>
+                      <span className="text-text-muted text-xl">→</span>
+                      <span className="text-3xl md:text-4xl font-bold text-text-primary">
+                        {cs.resultAfter}
+                      </span>
+                    </div>
+                    <p className="text-sm text-text-secondary">{cs.quote}</p>
+                  </div>
+
+                  <Link
+                    href="/portfolio"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-text-primary hover:text-text-secondary transition-colors mt-6"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
-                    AI事業化
-                  </h3>
+                    詳しく見る
+                    <ArrowRight size={14} />
+                  </Link>
                 </div>
-
-                <p className="text-text-secondary text-sm mb-8 leading-relaxed">
-                  業界の業務フローを理解し、AIで本質的な課題を解決する。
-                  PoC設計から本番実装まで、事業に実装可能なAIを構築します。
-                </p>
-
-                <div className="space-y-3">
-                  {aiFields.map((field) => (
-                    <div
-                      key={field.label}
-                      className="flex items-center gap-3"
-                    >
-                      <field.icon size={14} className="shrink-0" style={{ color: field.color }} />
-                      <div className="flex items-baseline gap-2">
-                        <p className="text-sm font-medium text-text-primary">{field.label}</p>
-                        <p className="text-xs text-text-muted">{field.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </FadeInSection>
-
-            {/* SNS Domain */}
-            <FadeInSection delay={0.08}>
-              <div className="rounded-xl border border-border bg-bg-card p-8 md:p-12 transition-colors duration-200 hover:border-border-light">
-                <div className="flex items-center gap-3 mb-6">
-                  <Megaphone size={18} className="text-[#f59e0b]" />
-                  <h3
-                    className="text-lg font-bold text-text-primary"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    SNS設計
-                  </h3>
-                </div>
-
-                <p className="text-text-secondary text-sm mb-8 leading-relaxed">
-                  6チャンネル・総フォロワー170万人超の運用実績。
-                  アルゴリズムの構造を理解した上で、
-                  コンテンツ戦略とブランド設計をトータルで支援します。
-                </p>
-
-                <div className="space-y-3">
-                  {[
-                    "コンテンツ戦略設計",
-                    "SNSブランディング",
-                    "アルゴリズム最適化",
-                    "運用・分析サポート",
-                  ].map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center gap-3"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-text-muted shrink-0" />
-                      <p className="text-sm font-medium text-text-primary">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </FadeInSection>
+              </FadeInSection>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ===== PRODUCT TEASER ===== */}
+      {/* ===== PROOF OF DESIGN (SNS) ===== */}
       <section className="py-32 px-6 border-t border-border">
         <div className="mx-auto max-w-5xl">
           <FadeInSection>
-            <div className="md:flex md:items-start md:justify-between md:gap-16">
-              <div className="md:max-w-md">
-                <span
-                  className="inline-block text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  Product — PoC募集中
-                </span>
-                <h2
-                  className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-text-primary"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  Welza
-                </h2>
-              </div>
-              <div className="md:flex-1 md:pt-12">
-                <p className="text-text-secondary mb-8">
-                  AIがチェックワークフローを丸ごと設計・運用。
-                  チーム間の品質管理を、属人化から仕組みに変える。
-                </p>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-text-primary hover:text-text-secondary transition-colors"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  PoC参加のご相談
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
+            <p
+              className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              設計力の証明
+            </p>
+            <h2
+              className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-text-primary"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              SNSでも、勝ち筋を仕組みにしてきた。
+            </h2>
+            <p className="text-text-secondary max-w-2xl mb-16">
+              何が刺さるかを言語化し、再現できる運用に落とした結果が170万フォロワーです。
+              AI構築でも同じく、判断基準を人ではなく仕組みに残します。
+            </p>
           </FadeInSection>
+
+          <StaggerContainer className="grid gap-5 sm:grid-cols-3 sm:gap-8">
+            {[
+              { value: "170万+", label: "総フォロワー" },
+              { value: "6+", label: "チャンネル運用" },
+              { value: "55万人", label: "最大チャンネル規模" },
+            ].map((item) => (
+              <StaggerItem key={item.label}>
+                <div className="rounded-xl border border-border bg-bg-card px-5 py-6">
+                  <p
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-secondary mb-2"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {item.value}
+                  </p>
+                  <p className="text-xs sm:text-sm text-text-muted">{item.label}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
@@ -259,17 +277,21 @@ export default function HomePage() {
               className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              一緒に、事業を動かしませんか？
+              まず、止まりやすい業務を
+              <br />
+              聞かせてください。
             </h2>
             <p className="text-text-secondary mb-12">
-              AI導入のご相談も、SNS戦略のご相談も、お気軽にどうぞ。
+              「どこから手をつけるべきか分からない」でも大丈夫です。
+              <br className="hidden sm:block" />
+              業務を聞いて、最初に残すべき判断基準を一緒に整理します。
             </p>
             <Link
               href="/contact"
               className="group inline-flex items-center gap-2 px-10 py-3.5 rounded-full text-sm font-semibold text-white bg-text-primary hover:opacity-80 transition-opacity duration-200"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <span>お問い合わせ</span>
+              <span>無料で相談する</span>
               <ArrowRight
                 size={15}
                 className="transition-transform group-hover:translate-x-0.5"

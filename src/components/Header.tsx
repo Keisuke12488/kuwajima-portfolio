@@ -4,13 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "トップ" },
+  { href: "/about", label: "自己紹介" },
+  { href: "/portfolio", label: "実績" },
 ];
 
 export function Header() {
@@ -27,7 +26,7 @@ export function Header() {
               className="text-lg font-bold tracking-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <span className="text-[#999999]">K</span><span className="text-text-primary">uwajima</span>
+              <span className="text-[#999999]">W</span><span className="text-text-primary">elza</span>
             </span>
           </Link>
 
@@ -61,10 +60,21 @@ export function Header() {
             })}
           </div>
 
+          <div className="hidden md:block">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-text-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-85"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              相談する
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative z-50 md:hidden p-2 text-text-secondary hover:text-text-primary transition-colors"
+            className="relative z-50 md:hidden ml-auto p-2 text-text-secondary hover:text-text-primary transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -82,7 +92,7 @@ export function Header() {
             transition={{ duration: 0.15 }}
             className="fixed inset-0 z-40 bg-white md:hidden"
           >
-            <div className="flex flex-col items-center justify-center h-full gap-8">
+            <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
               {navItems.map((item, i) => (
                 <motion.div
                   key={item.href}
@@ -109,6 +119,23 @@ export function Header() {
                   </Link>
                 </motion.div>
               ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 8 }}
+                transition={{ delay: navItems.length * 0.06 }}
+              >
+                <Link
+                  href="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="group inline-flex items-center gap-2 rounded-full bg-text-primary px-6 py-3 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-85"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  相談する
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}

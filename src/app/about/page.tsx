@@ -95,24 +95,24 @@ const skills: SkillGroup[] = [
 
 const strengths = [
   {
-    icon: Lightbulb,
-    title: "構想力",
-    desc: "ビジネスの課題を捉え、AIとSNSの組み合わせで解決策を設計する",
-  },
-  {
-    icon: Rocket,
-    title: "推進力",
-    desc: "アイデアを形にするスピード。PoC構築から本番実装まで一気通貫",
-  },
-  {
     icon: Users,
-    title: "個別化",
-    desc: "業界・事業ごとの特性を深く理解し、最適なソリューションを提案",
+    title: "ヒアリング力",
+    desc: "誰が何に時間を使い、どこで止まり、何が頭の中にしかないのかを聞き出す。技術ではなく、現場の言葉で課題を整理する。",
+  },
+  {
+    icon: Lightbulb,
+    title: "着想力",
+    desc: "1つの改善で終わらせず、「この判断基準も残せる」「この作業も軽くできる」と次の打ち手まで見通す。",
   },
   {
     icon: Target,
-    title: "戦略性",
-    desc: "複数のルートから最適解を選び、限られたリソースで最大成果を出す",
+    title: "設計力",
+    desc: "ベテラン任せだった判断を、誰でもたどれる業務フローに変える。SNSで培った設計力を、業務AIにもそのまま活かしている。",
+  },
+  {
+    icon: Rocket,
+    title: "実装・定着力",
+    desc: "動くものを早く出し、現場で試して磨く。新しいツールを押し付けず、今の運用の延長で使える形まで落とし込む。",
   },
 ];
 
@@ -126,7 +126,7 @@ export default function AboutPage() {
             className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            About
+            自己紹介
           </p>
           <h1
             className="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-text-primary"
@@ -135,15 +135,12 @@ export default function AboutPage() {
             <span className="text-[#999999]">K</span>uwajima
           </h1>
           <p className="text-text-secondary max-w-2xl mb-4">
-            AIの事業実装とSNS戦略設計を軸に活動するフリーランス。
-            業界特化のAI構築（福祉・税務・不動産・広告）と、
-            アルゴリズムの構造理解に基づくSNS設計の二刀流で、
-            事業の成長をトータルで支援しています。
+            誰が抜けると止まるのか。どの判断が頭の中にしかないのか。
+            そこを見つけて、AIで会社に残る業務フローへ変える仕事をしています。
           </p>
           <p className="text-text-secondary max-w-2xl">
-            現在はAIプロダクト「Welza」を共同開発中。
-            チーム間の品質チェックワークフローをAIで自動化する
-            プロダクトとして、PoC段階から事業化を推進しています。
+            福祉・広告・不動産・税務まで業界をまたいで、ヒアリングから設計、実装、定着まで一気通貫で担当。
+            SNSでは6チャンネル・170万フォロワーを設計し、その再現性を業務AIにも持ち込んでいます。
           </p>
         </FadeInSection>
 
@@ -154,13 +151,13 @@ export default function AboutPage() {
               className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Strengths
+              強み
             </p>
             <h2
               className="text-2xl md:text-3xl font-bold tracking-tight mb-16 text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              強みとスタイル
+              聞く → 着想 → 設計 → 動かす
             </h2>
           </FadeInSection>
 
@@ -184,52 +181,6 @@ export default function AboutPage() {
           </StaggerContainer>
         </section>
 
-        {/* ===== SKILLS ===== */}
-        <section className="mt-32 border-t border-border pt-20">
-          <FadeInSection>
-            <p
-              className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Skills
-            </p>
-            <h2
-              className="text-2xl md:text-3xl font-bold tracking-tight mb-16 text-text-primary"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              スキル
-            </h2>
-          </FadeInSection>
-
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skills.map((group) => (
-              <StaggerItem key={group.category}>
-                <div className="rounded-xl border border-border bg-bg-card p-6 md:p-8 transition-colors duration-200 hover:border-border-light">
-                  <div className="flex items-center gap-2.5 mb-5">
-                    <group.icon size={14} className="text-text-muted" />
-                    <h3
-                      className="text-sm font-bold text-text-primary"
-                      style={{ fontFamily: "var(--font-display)" }}
-                    >
-                      {group.category}
-                    </h3>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {group.items.map((item) => (
-                      <span
-                        key={item.label}
-                        className={`text-xs px-2.5 py-1 rounded-full ${item.bg} ${item.text}`}
-                      >
-                        {item.label}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </section>
-
         {/* ===== APPROACH ===== */}
         <section className="mt-32 border-t border-border pt-20">
           <FadeInSection>
@@ -237,27 +188,61 @@ export default function AboutPage() {
               className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Approach
+              仕事の進め方
             </p>
             <h2
               className="text-2xl md:text-3xl font-bold tracking-tight mb-8 text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              仕事の進め方
+              使われる形になるまで設計する。
             </h2>
             <div className="space-y-6 text-text-secondary max-w-2xl">
               <p>
-                まず、事業そのものを理解することから始めます。
-                AIやSNSは手段であり、目的は事業の成長です。
-                業界の商習慣、現場のオペレーション、チームの力学を把握した上で、
-                テクノロジーをどこに差し込むかを設計します。
+                まずは現場を見て、「どの業務が止まりやすいか」「誰に負担が寄っているか」を整理します。
+                その上で、どこにAIを入れると一番効くかを決めます。
               </p>
               <p>
-                実装はスピード重視。PoCを最短で構築し、
-                実際のデータ・ユーザーで検証してから磨き上げる。
-                「完璧な設計書を作ってから動く」ではなく、
-                「動くものを見せてから設計を深める」スタイルです。
+                実際に大阪の福祉施設へ足を運び、現場の方と一緒に業務の流れを見ながら方向性を擦り合わせたように、
+                まずはその場の空気と使われ方を見てから設計します。
               </p>
+              <p>
+                新しいツールは、できる限り増やしません。
+                SlackやLINEなど今の業務で使っているものの延長で動かし、現場が迷わない導線にします。
+              </p>
+              <p>
+                実装は早く出して、現場で試しながら磨きます。
+                完璧な資料を先に作るより、まず動くものを見せてから判断基準を詰めていくスタイルです。
+              </p>
+            </div>
+          </FadeInSection>
+        </section>
+
+        {/* ===== SKILLS（簡易版） ===== */}
+        <section className="mt-32 border-t border-border pt-20">
+          <FadeInSection>
+            <p
+              className="text-xs font-medium tracking-widest uppercase text-text-muted mb-5"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              技術スタック
+            </p>
+            <p className="text-sm text-text-muted mb-8">
+              案件に応じて最適な技術を選定しています。
+            </p>
+          </FadeInSection>
+
+          <FadeInSection>
+            <div className="flex flex-wrap gap-2">
+              {skills.flatMap((group) =>
+                group.items.map((item) => (
+                  <span
+                    key={item.label}
+                    className="text-xs px-2.5 py-1 rounded-full bg-bg-secondary text-text-muted"
+                  >
+                    {item.label}
+                  </span>
+                ))
+              )}
             </div>
           </FadeInSection>
         </section>

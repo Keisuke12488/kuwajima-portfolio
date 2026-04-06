@@ -5,28 +5,28 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kuwajima.vercel.app"),
-  title: "Kuwajima | AI × SNS",
+  title: "Kuwajima | 業務AI構築",
   description:
-    "AI事業化とSNS設計の二刀流。福祉・税務・不動産・広告のAI効率化と、SNS戦略設計で事業を加速させるフリーランス。",
+    "現場に入り、業務の課題を聞き、誰でも使えるAIの仕組みに変える。福祉・広告・不動産・税務など業界横断でAI構築を手がける welza。",
   openGraph: {
-    title: "Kuwajima | AI × SNS",
+    title: "Kuwajima | 業務AI構築",
     description:
-      "AI事業化とSNS設計の二刀流。業界特化のAI構築とSNS戦略設計。",
+      "現場に入り、業務の課題を聞き、誰でも使えるAIの仕組みに変える。",
     type: "website",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kuwajima | AI × SNS",
+        alt: "Kuwajima | 業務AI構築",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kuwajima | AI × SNS",
+    title: "Kuwajima | 業務AI構築",
     description:
-      "AI事業化とSNS設計の二刀流。業界特化のAI構築とSNS戦略設計。",
+      "現場に入り、業務の課題を聞き、誰でも使えるAIの仕組みに変える。",
     images: ["/og-image.png"],
   },
 };
